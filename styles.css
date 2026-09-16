@@ -1,0 +1,20 @@
+body {
+    background-color: #000222;
+    color: #77BBAA;
+    text-align: center;
+}
+h1, h2 {
+    font-size: 48px;
+}
+a {
+    color: #BBDDFF;
+}
+ul {
+    margin-left: 30%;
+    width: 40%;
+}
+ul li {
+    /* display: inline-block; */
+    margin-bottom: 16px;
+    text-align: left;
+}
