@@ -26,7 +26,7 @@ ul li, ol li {
 }
 ul.A, ul.B {
     margin-left: 0%;
-    width: 30%;
+    width: 30vw;
 }
 p {
     text-align: left;
