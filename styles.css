@@ -24,6 +24,10 @@ ul li, ol li {
     margin-bottom: 16px;
     text-align: left;
 }
+ul.A, ul.B {
+    margin-left: 0%;
+    width: 30%;
+}
 p {
     text-align: left;
     margin-left: 25%;
