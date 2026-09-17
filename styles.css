@@ -3,8 +3,14 @@ body {
     color: #77BBAA;
     text-align: center;
 }
-h1, h2 {
+h1 {
     font-size: 48px;
+}
+h2 {
+    font-size: 36px;
+}
+h2 {
+    font-size: 24px;
 }
 a {
     color: #BBDDFF;
@@ -22,4 +28,16 @@ p {
     text-align: left;
     margin-left: 25%;
     width: 50%;
+}
+table {
+    padding: 6px
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    background-color: #101434;
+    border: 1px solid #779988;
+    border-collapse: collapse;
+    padding: 6px
 }
