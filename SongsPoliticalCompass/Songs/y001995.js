@@ -1,0 +1,1 @@
+pop.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [16.44, -5.68]},"properties": {"release":[1995,-99,-99], "update":[2026,9,18], "title":"Блуждающий огонь", "artists":["Наталья Верич"], "lang":["ru"], "genre":"pop", "subgenre":["pop"], "length":232, "link":["yt","zp8zApyh6eE"]}});
