@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-30.97, 44.68]},"properties": {"release":[2025,7,24], "update":[2026,9,13], "title":"12 to 12", "artists":["sombr"], "lang":["en"], "genre":"poprock", "subgenre":["newwave","synthpop"], "length":233, "link":["yt","cZgUiR31m-Y"]}});
