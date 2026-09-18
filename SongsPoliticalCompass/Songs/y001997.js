@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [75.62, -45.49]},"properties": {"release":[1997,3,31], "update":[2026,9,11], "title":"It's No Good", "artists":["Depeche Mode"], "lang":["en"], "genre":"poprock", "subgenre":["newwave","synthpop"], "length":242, "link":["yt","_-QPvffO1gs"]}});

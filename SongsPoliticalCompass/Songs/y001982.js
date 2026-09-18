@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [10.56, 19.99]},"properties": {"release":[1982,1,-99], "update":[2026,9,11], "title":"Say Hello, Wave Goodbye", "artists":["Soft Cell"], "lang":["en"], "genre":"poprock", "subgenre":["newwave","synthpop"], "length":319, "link":["yt","y9KgEs3Zksg"]}});

@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [20.13, 21.34]},"properties": {"release":[1985,11,-99], "update":[2026,9,13], "title":"The Sun Always Shines on T.V.", "artists":["a-ha"], "lang":["en"], "genre":"poprock", "subgenre":["newwave","synthpop"], "length":277, "link":["yt","a3ir9HC9vYg"]}});

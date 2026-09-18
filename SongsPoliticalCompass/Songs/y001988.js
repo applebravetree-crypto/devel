@@ -1,0 +1,2 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-13.17, -37.06]},"properties": {"release":[1988,-99,-99], "update":[2026,9,11], "title":"Under the White Bible Law", "artists":["the Game"], "lang":["en"], "genre":"poprock", "subgenre":["newwave"], "length":267, "link":["yt","OQK-V-LysIs"]}});
+[-44.81, -3.56]

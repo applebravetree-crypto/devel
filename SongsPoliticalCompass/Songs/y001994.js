@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-51.31, -44.69]},"properties": {"release":[1994,5,23], "update":[2026,9,13], "title":"Black Hole Sun", "artists":["Soundgarden"], "lang":["en"], "genre":"rock", "subgenre":["rock"], "length":318, "link":["yt","3mbBbFH9fAg"]}});

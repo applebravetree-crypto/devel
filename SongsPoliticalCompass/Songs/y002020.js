@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [62.93, -36.82]},"properties": {"release":[2020,5,26], "update":[2026,9,11], "title":"Nos Célébrations", "artists":["Indochine"], "lang":["fr"], "genre":"poprock", "subgenre":["newwave"], "length":289, "link":["yt","f3Pw36EFRV0"]}});

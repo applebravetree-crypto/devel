@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [40.25, -12.81]},"properties": {"release":[1989,-99,-99], "update":[2026,9,11], "title":"Springer", "artists":["Johan Lindell"], "lang":["sv"], "genre":"poprock", "subgenre":["newwave"], "length":196, "link":["yt","xyR0NEk5hxg"]}});
