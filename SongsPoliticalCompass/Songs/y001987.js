@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [6.54, 49.22]},"properties": {"release":[1987,4,13], "update":[2026,9,18], "title":"Strangelove", "artists":["Depeche Mode"], "lang":["en"], "genre":"poprock", "subgenre":["newwave","synthpop"], "length":268, "link":["yt","MHRabky4Ajc"]}});

@@ -1,2 +1,3 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [13.09, -28.35]},"properties": {"release":[1988,-99,-99], "update":[2026,9,18], "title":"Walk Away", "artists":["the Game"], "lang":["en"], "genre":"poprock", "subgenre":["newwave"], "length":256, "link":["yt","Oo83OgSc8DA"]}});
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-16.44, 41.53]},"properties": {"release":[1988,-99,-99], "update":[2026,9,18], "title":"Wise Men", "artists":["the Game"], "lang":["en"], "genre":"poprock", "subgenre":["newwave"], "length":214, "link":["yt","s7sZ3nAz0XE"]}});
 poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-13.17, -37.06]},"properties": {"release":[1988,-99,-99], "update":[2026,9,11], "title":"Under the White Bible Law", "artists":["the Game"], "lang":["en"], "genre":"poprock", "subgenre":["newwave"], "length":267, "link":["yt","OQK-V-LysIs"]}});
-[-44.81, -3.56]
