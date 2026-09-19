@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-14.89, 32.65]},"properties": {"release":[2024,6,14], "update":[2026,9,19], "title":"Le chant des cygnes", "artists":["Indochine"], "lang":["fr"], "genre":"poprock", "subgenre":["poprock"], "length":214, "link":["yt","ZAmOCXgc76U"]}});

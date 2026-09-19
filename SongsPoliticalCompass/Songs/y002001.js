@@ -1,0 +1,1 @@
+rock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [9.94, -35.83]},"properties": {"release":[2001,4,2], "update":[2026,9,19], "title":"Bullets for Brains", "artists":["Roland Orzabal"], "lang":["en"], "genre":"poprock", "subgenre":["poprock","newwave"], "length":243, "link":["yt","Ky37IwZIyrA"]}});
