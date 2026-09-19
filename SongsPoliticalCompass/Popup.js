@@ -9,15 +9,16 @@ var genreNames = {
     "metal":"metal"
 }
 var subgenreNames = {
+    "pop":"pop",
+    "britpop":"britpop",
+    "synthpop":"synth pop",
     "rock":"rock",
     "newwave":"new wave",
-    "walkawaynewwave":"walkaway new wave",
-    "synthpop":"synth pop"
+    "walkawaynewwave":"''walkaway'' new wave",
 }
 var linkBySite = {
     "yt": ["www.youtube.com/watch?v="]
 }
-var types = {"T": "Tornado", "L": "Landspout"}
 function tornadoClicked(e) {
     console.log(e)
     var prop = e.sourceTarget.feature.properties
