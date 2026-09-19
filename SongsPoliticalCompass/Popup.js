@@ -6,9 +6,7 @@ var genreNames = {
     "poprock":"pop rock",
     "funk":"funk",
     "rock":"rock",
-    "metal":"metal"
-}
-var subgenreNames = {
+    "metal":"metal",
     "pop":"pop",
     "britpop":"britpop",
     "synthpop":"synth pop",
@@ -53,9 +51,9 @@ function tornadoClicked(e) {
     }
     prop.subgenre.forEach(subgenre => {
         if (prop.subgenre[0] == subgenre) {
-            txtSubgenre += subgenreNames[subgenre]
+            txtSubgenre += genreNames[subgenre]
         } else {
-            txtSubgenre += ", " + subgenreNames[subgenre]
+            txtSubgenre += ", " + genreNames[subgenre]
         }
     });
     prop.artists.forEach(artist => {
