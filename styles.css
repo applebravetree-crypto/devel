@@ -21,7 +21,7 @@ ul, ol {
 }
 ul.A, ul.B, ol.A, ol.B {
     margin-left: 0%;
-    width: 30vw;
+    width: 40vw;
 }
 ul li, ol li {
     /* display: inline-block; */
