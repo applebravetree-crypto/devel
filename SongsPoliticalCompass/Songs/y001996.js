@@ -1,0 +1,1 @@
+funk.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [21.68, 40.68]},"properties": {"release":[1997,6,16], "update":[2026,9,20], "title":"Virtual Insanity", "artists":["Jamiroquai"], "lang":["en"], "genre":"funk", "subgenre":["funkrock"], "length":230, "link":["yt","4JkIs37a2JE"]}});

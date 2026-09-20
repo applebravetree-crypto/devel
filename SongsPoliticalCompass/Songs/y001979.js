@@ -1,0 +1,1 @@
+funk.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [29.75, 29.61]},"properties": {"release":[1979,4,24], "update":[2026,9,20], "title":"Boogie Wonderland", "artists":["Earth, Wind & Fire"], "lang":["en"], "genre":"funk", "subgenre":["funk"], "length":292, "link":["yt","god7hAPv8f0"]}});

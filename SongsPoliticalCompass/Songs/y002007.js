@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-3.18, 16.77]},"properties": {"release":[2007,7,9], "update":[2026,9,20], "title":"Fluorescent Adolescent", "artists":["Arctic Monkeys"], "lang":["en"], "genre":"poprock", "subgenre":["britpop"], "length":171, "link":["yt","ma9I9VBKPiw"]}});
