@@ -3,6 +3,7 @@ var seasonMAX = Math.pow(2, 32);
 
 var genreALLOW = {
     "pop":true,
+    "electronic":true,
     "hiphop":true,
     "house":true,
     "poprock":true,

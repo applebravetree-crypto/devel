@@ -1,5 +1,6 @@
 var stylesPerGenre = {
     "pop": styles_pop,
+    "electronic": styles_electronic,
     "hiphop": styles_hiphop,
     "house": styles_poprock,
     "poprock": styles_house,
@@ -9,6 +10,7 @@ var stylesPerGenre = {
 }
 var iconsPerGenre = {
     "pop": popIcon,
+    "electronic": electronicIcon,
     "hiphop": hiphopIcon,
     "house": houseIcon,
     "poprock": poprockIcon,

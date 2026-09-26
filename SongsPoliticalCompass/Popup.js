@@ -9,11 +9,13 @@ var genreNames = {
     "metal":"metal",
     "pop":"pop",
     "britpop":"britpop",
+    "dancepop":"dance-pop",
     "synthpop":"synth-pop",
     "rock":"rock",
     "newwave":"new wave",
     "walkawaynewwave":"''walkaway'' new-wave",
     "funkrock":"funk-rock",
+    "electronic":"electronic",
 }
 var linkBySite = {
     "yt": ["www.youtube.com/watch?v="]
@@ -70,6 +72,6 @@ function tornadoClicked(e) {
     txtArtists += "</td></tr> "
     L.popup()
         .setLatLng(e.latlng)
-        .setContent("<table><thead><tr><th class='popup_header_" + prop.genre + "' colspan='99'><h2> " + prop.title + " &ndash; " + prop.release[0] + "</h2></th></tr></thead> <tbody><tr><th>Released</th><td>" + txtTime + txtDate + "</td></tr> <tr><th>Last updated</th><td>" + txtUpdDate + "</td></tr> " + txtArtists + "<tr><th>Genre</th><td>" + genreNames[prop.genre] + "</td></tr> " + txtSubgenre + txtLength + txtLink + "</tbody><table>")
+        .setContent("<table><thead><tr><th class='popup_header_" + prop.genre + "' colspan='99'><h2> &quot;" + prop.title + "&quot; &ndash; " + prop.release[0] + "</h2></th></tr></thead> <tbody><tr><th>Released</th><td>" + txtTime + txtDate + "</td></tr> <tr><th>Last updated</th><td>" + txtUpdDate + "</td></tr> " + txtArtists + "<tr><th>Genre</th><td>" + genreNames[prop.genre] + "</td></tr> " + txtSubgenre + txtLength + txtLink + "</tbody><table>")
         .openOn(map);
 }
