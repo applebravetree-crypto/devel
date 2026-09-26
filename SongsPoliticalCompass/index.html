@@ -92,6 +92,7 @@
 <script>
     
     const styles_pop = {"color": "#333333", "weight": 6};
+    const styles_electronic = {"color": "#333333", "weight": 6};
     const styles_hiphop = {"color": "#00CCAA", "weight": 6};
     const styles_house = {"color": "#0066CC", "weight": 6};
     const styles_poprock = {"color": "#DDBB11", "weight": 6};
@@ -114,6 +115,7 @@
         attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
     });
 	var pop = L.geoJSON()
+    var electronic = L.geoJSON()
 	var hiphop = L.geoJSON()
 	var house = L.geoJSON()
 	var poprock = L.geoJSON()
@@ -133,6 +135,7 @@
 	});
 
 	const popIcon = new LeafIcon({iconUrl: 'Icons/pop.png'});
+	const electronicIcon = new LeafIcon({iconUrl: 'Icons/electronic.png'});
 	const hiphopIcon = new LeafIcon({iconUrl: 'Icons/hiphop.png'});
 	const houseIcon = new LeafIcon({iconUrl: 'Icons/house.png'});
 	const funkIcon = new LeafIcon({iconUrl: 'Icons/funk.png'});
@@ -144,6 +147,15 @@
 <script src="Filters.js"></script>
 <script src="Popup.js"></script>
 
+<script src="Songs/y001970.js"></script>
+<script src="Songs/y001971.js"></script>
+<script src="Songs/y001972.js"></script>
+<script src="Songs/y001973.js"></script>
+<script src="Songs/y001974.js"></script>
+<script src="Songs/y001975.js"></script>
+<script src="Songs/y001976.js"></script>
+<script src="Songs/y001977.js"></script>
+<script src="Songs/y001978.js"></script>
 <script src="Songs/y001979.js"></script>
 <script src="Songs/y001980.js"></script>
 <script src="Songs/y001981.js"></script>
@@ -235,6 +247,9 @@
     pop.eachLayer(function (layer) {
         constructor(pop, layer)
     });
+    electronic.eachLayer(function (layer) {
+        constructor(electronic, layer)
+    });
     hiphop.eachLayer(function (layer) {
         constructor(hiphop, layer)
     });
@@ -255,6 +270,9 @@
     });
     if (genreALLOW["pop"] == true) {
         pop.addTo(map);
+    }
+    if (genreALLOW["electronic"] == true) {
+        electronic.addTo(map);
     }
     if (genreALLOW["hiphop"] == true) {
         hiphop.addTo(map);
