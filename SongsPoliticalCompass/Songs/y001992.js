@@ -1,0 +1,1 @@
+electronic.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [2.02, -21.44]},"properties": {"release":[1992,6,22], "update":[2026,9,26], "title":"She's A Superstar", "artists":["The Verve"], "lang":["en"], "genre":"poprock", "subgenre":["poprock"], "length":253, "link":["yt","pAaIvprGojE"]}});
