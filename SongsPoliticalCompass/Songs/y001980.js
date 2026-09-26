@@ -1,0 +1,1 @@
+pop.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-5.04, 3.24]},"properties": {"release":[1980,7,21], "update":[2026,9,26], "title":"The Winner Takes It All", "artists":["ABBA"], "lang":["en"], "genre":"pop", "subgenre":["pop"], "length":289, "link":["yt","92cwKCU8Z5c"]}});

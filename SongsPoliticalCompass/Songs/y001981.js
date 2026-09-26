@@ -1,0 +1,1 @@
+pop.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [15.36, -20.75]},"properties": {"release":[1981,10,9], "update":[2026,9,26], "title":"Young Turks", "artists":["Rod Stewart"], "lang":["en"], "genre":"pop", "subgenre":["newwave","synthpop"], "length":299, "link":["yt","y9KgEs3Zksg"]}});
