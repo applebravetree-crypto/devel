@@ -8,6 +8,7 @@ var genreALLOW = {
     "house":true,
     "poprock":true,
     "funk":true,
+    "postpunk":true,
     "rock":true,
     "metal":true,
 }

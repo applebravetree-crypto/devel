@@ -5,6 +5,7 @@ var genreNames = {
     "house":"house",
     "poprock":"pop-rock",
     "funk":"funk",
+    "postpunk":"post-punk",
     "rock":"rock",
     "metal":"metal",
     "pop":"pop",
@@ -12,10 +13,11 @@ var genreNames = {
     "dancepop":"dance-pop",
     "synthpop":"synth-pop",
     "rock":"rock",
-    "newwave":"new wave",
-    "walkawaynewwave":"''walkaway'' new-wave",
+    "newwave":"new-wave",
+    "walkawaynewwave":"&quot;walkaway&quot; new-wave",
     "funkrock":"funk-rock",
     "electronic":"electronic",
+    "disco":"disco",
 }
 var linkBySite = {
     "yt": ["www.youtube.com/watch?v="]
