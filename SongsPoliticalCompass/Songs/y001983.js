@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-51.64, 32.85]},"properties": {"release":[1983,10,-99], "update":[2026,9,26], "title":"Rainbow In The Dark", "artists":["Dio"], "lang":["en"], "genre":"rock", "subgenre":["metal"], "length":249, "link":["yt","PrBUjXaRSUQ"]}});
