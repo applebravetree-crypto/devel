@@ -28,6 +28,9 @@ ul li, ol li {
     margin-bottom: 16px;
     text-align: left;
 }
+li.ly {
+    margin-bottom: 2px;
+}
 p {
     text-align: left;
     margin-left: 25%;
