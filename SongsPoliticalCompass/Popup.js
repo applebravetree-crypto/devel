@@ -18,6 +18,8 @@ var genreNames = {
     "funkrock":"funk-rock",
     "electronic":"electronic",
     "disco":"disco",
+    "R&B":"R&B",
+    "soul":"soul",
 }
 var linkBySite = {
     "yt": ["www.youtube.com/watch?v="]
