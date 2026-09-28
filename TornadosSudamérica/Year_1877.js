@@ -1,0 +1,3 @@
+const tornado_1877_03_07_9999 = L.polyline([[-23.23, -45.90],[-23.23, -45.90]], styles_FU).bindPopup(
+    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 1877/03/07</h2></th></tr> <tr><th>Start time</th><td>Quarta-feira, 7 março 1877</td></tr> <tr><th>Rating</th><td>?</td></tr> <tr><th>Fontes</th><td><a target='_blank' href='https://repositorio.unicamp.br/Acervo/Detalhe/901142'>[1]:Tornados e trombas-d'água no Brasil : modelo de risco e proposta de escala de avaliação de danos | Repositório da Produção Científica e Intelectual da Unicamp (Page 200) (TO BE DOWNLOADED)</a></td></tr> <tr><th>Comments</th><td></td></tr>"
+).addTo(FU_tornadoes);
