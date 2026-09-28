@@ -1,0 +1,288 @@
+body {
+    background-color: #0b1d0b;
+    color: #bbffbb;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+.main_div {
+    position: absolute;
+    width: 60%;
+    left: 20%;
+    text-align: left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Times New Roman', Times, serif;
+}
+.risks_table {
+    width: 60%;
+}
+.outlooks_list {
+    position: absolute;
+    width: 38%;
+    right: 1%;
+    top: 0%;
+}
+div.risk_seperator {
+    font-size: 0.5em;
+}
+abbr {
+    cursor: help;
+}
+table.loc_bar {
+    position: relative;
+    left: 20%;
+    width: 60%;
+}
+/* .loc_bar_0, .loc_bar_T, .loc_bar_1, .loc_bar_2, .loc_bar_3, .loc_bar_4, .loc_bar_5, .loc_bar_S, .loc_bar_V {
+    position: relative;
+    left: 20%;
+    width: 60%;
+    height: 3%;
+    padding: 2px;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+    text-wrap: wrap;
+    text-overflow: clip;
+} */
+.loc_bar_0 td {
+    background-color: #66666666;
+    color: #FFFFFF;
+}
+.loc_bar_T td {
+    background-color: #66646399;
+    color: #FFFFFF;
+}
+.loc_bar_1 td {
+    background-color: #11660099;
+    color: #FFFFFF;
+}
+.loc_bar_2 td {
+    background-color: #99880099;
+    color: #FFFFFF;
+}
+.loc_bar_3 td {
+    background-color: #66001199;
+    color: #FFFFFF;
+}
+.loc_bar_4 td {
+    background-color: #99008899;
+    color: #FFFFFF;
+}
+.loc_bar_5 td {
+    background-color: #11888899;
+    color: #FFFFFF;
+}
+.loc_bar_S td {
+    background-color: #FFBB9999;
+    color: #FFFFFF;
+}
+.loc_bar_V td {
+    background-color: #FFBB9999;
+    color: #FFFFFF;
+}
+
+.loc_bar_C0 td {
+    background-color: #44666666;
+    color: #99FFEE;
+}
+.loc_bar_C1 td {
+    background-color: #00554466;
+    color: #00CCBB;
+}
+.loc_bar_C2 td {
+    background-color: #66664466;
+    color: #FFEEBB;
+}
+.loc_bar_C3 td {
+    background-color: #55330066;
+    color: #DD9900;
+}
+.loc_bar_C4 td {
+    background-color: #44001166;
+    color: #AA0022;
+}
+.loc_bar_C5 td {
+    background-color: #55224466;
+    color: #DD55AA;
+}
+
+hr {
+    border-color: #bbffbb;
+}
+a {
+    color: #bbbbff;
+    text-decoration: underline;
+}
+a:hover {
+    color: #ddddff;
+}
+a.unavailable {
+    color: #ffaaaa;
+}
+a.unavailable:hover {
+    color: #ffcccc;
+}
+a.useful_link {
+    color: unset;
+}
+a.useful_link:hover {
+    color: #bbbbff;
+    text-decoration: underline dotted;
+}
+.risk_explain {
+    font-family: Helvetica, Arial, sans-serif;
+    left: 20%;
+    width: 60%;
+    position: relative;
+}
+.april_fools {
+    font-weight: unset;
+    color: #ffff00; 
+    cursor: help;
+}
+.halloween {
+    font-weight: unset;
+    color: #ffee99; 
+    text-shadow: 1px 1px #ff7700;
+    cursor: help;
+}
+.christmas {
+    font-weight: unset;
+    color: #ffffff; 
+    text-shadow: 1px 1px #ff0000;
+    cursor: help;
+}
+.valentine {
+    font-weight: unset;
+    color: #ff99ff; 
+    text-shadow: 1px 1px #995599;
+    cursor: help;
+}
+table {
+    font-family: 'Helvetica', Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    color: #ffffff;
+    background-color: #444444;
+    border: 1px solid #909090;
+    text-align: left;
+    padding: 6px;
+    text-overflow: clip;
+}
+td {
+    color: #ffffff;
+    background-color: #333333;
+    border: 1px solid #909090;
+    text-align: left;
+    padding: 6px;
+    text-overflow: clip;
+}
+.outlook_ul table tbody tr td {
+    border: 0px solid #909090;
+    padding: 2px;
+    text-wrap: nowrap;
+}
+.outlook_ul table tbody tr td table tbody tr td {
+    text-align: left;
+}
+b.NAD {
+    color: #FFFFFF;
+    font-weight: unset;
+}
+b.TRM {
+    color: #AAA8A7;
+    font-weight: unset;
+}
+b.MSC {
+    color: #33AA11;
+    font-weight: unset;
+}
+b.ELV {
+    color: #FFDD00;
+    font-weight: unset;
+}
+b.MDD {
+    color: #AA0022;
+    text-shadow: #000000 0px 0px 6px;
+    font-weight: unset;
+}
+b.MYR {
+    color: #FF00EE;
+    font-weight: unset;
+}
+b.EXO {
+    color: #22EEEE;
+    font-weight: unset;
+}
+b.SIGTOR {
+    color: #FFBB99;
+    text-shadow: #000000 0px 0px 6px;
+    font-weight: bold;
+}
+th, td {
+    text-align: center;
+}
+
+td.NAD {
+    color: #AAAAAA;
+    background-color: #000000;
+}
+td.TRM {
+    color: #000000;
+    background-color: #AAA8A7;
+}
+td.MSC {
+    color: #000000;
+    background-color: #33AA11;
+}
+td.ELV {
+    color: #000000;
+    background-color: #FFDD00;
+}
+td.MDD {
+    color: #ffffff;
+    background-color: #AA0022;
+}
+td.MYR {
+    color: #ffffff;
+    background-color: #FF00EE;
+}
+td.EXO {
+    color: #000000;
+    background-color: #22EEEE;
+}
+td.SIGTOR {
+    color: #000000;
+    background-color: #FFBB99;
+}
+.outlook_ul {
+    list-style-type: none;
+    padding-left: 0px;
+    margin: 0px;
+    border: 1px dotted #DDDDDD;
+    line-height: 1.2em;
+    background: #f5ffff;
+}
+.outlook_ul_div {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    background-color: #333333;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+.outlook_ul_img {
+    text-align: left;
+    position: absolute;
+    left: 0%;
+    width: 96px;
+}
+.outlook_ul_text {
+    text-align: right;
+    position: absolute;
+    right: 0%;
+    width: 75%;
+    text-wrap: nowrap;
+}
