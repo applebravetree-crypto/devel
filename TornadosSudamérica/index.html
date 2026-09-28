@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Tornado Archive</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <link rel="stylesheet" href="styles.css">
+	</style>
+</head>
+<body class="body" style="background-color: #213C51;">
+
+<div id="map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative; height: 100%; outline-style: none;">
+	
+	<div class="leaflet-control-container">
+		<div class="leaflet-top leaflet-left">
+			<div class="leaflet-control-zoom leaflet-bar leaflet-control">
+				<a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false">
+					<span aria-hidden="true">+</span>
+				</a>
+				<a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false">
+					<span aria-hidden="true">−</span>
+				</a>
+			</div>
+		</div>
+		<div class="leaflet-top leaflet-right">
+
+		</div>
+		<div class="leaflet-bottom leaflet-left">
+
+		</div>
+		<div class="leaflet-bottom leaflet-right">
+			<div class="leaflet-control-attribution leaflet-control">
+				<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">
+					<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag">
+						<path fill="#4C7BE1" d="M0 0h12v4H0z">
+
+						</path>
+						<path fill="#FFD500" d="M0 4h12v3H0z">
+
+						</path>
+						<path fill="#E0BC00" d="M0 7h12v1H0z">
+
+						</path>
+					</svg> Leaflet
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="leaflet-control-container">
+		<div class="leaflet-top leaflet-left">
+			<div class="leaflet-control-zoom leaflet-bar leaflet-control">
+				<a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false">
+					<span aria-hidden="true">+</span>
+				</a>
+				<a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false">
+					<span aria-hidden="true">−</span>
+				</a>
+			</div>
+		</div>
+		<div class="leaflet-top leaflet-right">
+
+		</div>
+		<div class="leaflet-bottom leaflet-left">
+
+		</div>
+		<div class="leaflet-bottom leaflet-right">
+			<div class="leaflet-control-attribution leaflet-control">
+				<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">
+					<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag">
+						<path fill="#4C7BE1" d="M0 0h12v4H0z">
+
+						</path>
+						<path fill="#FFD500" d="M0 4h12v3H0z">
+
+						</path>
+						<path fill="#E0BC00" d="M0 7h12v1H0z">
+
+						</path>
+					</svg> Leaflet
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+    
+    const styles_FU = {"color": "#333333", "weight": 6};
+    const styles_F0 = {"color": "#00CCAA", "weight": 6};
+    const styles_F1 = {"color": "#0066CC", "weight": 6};
+    const styles_F2 = {"color": "#DDBB11", "weight": 6};
+    const styles_F3 = {"color": "#FF7700", "weight": 6};
+    const styles_F4 = {"color": "#EE0000", "weight": 6};
+    const styles_F5 = {"color": "#990077", "weight": 6};
+    const styles_FU_damage_path = {"color": "#333333", "weight": 0, "opacity": 0.4};
+    const styles_F0_damage_path = {"color": "#00CCAA", "weight": 0, "opacity": 0.4};
+    const styles_F1_damage_path = {"color": "#0066CC", "weight": 0, "opacity": 0.4};
+    const styles_F2_damage_path = {"color": "#DDBB11", "weight": 0, "opacity": 0.4};
+    const styles_F3_damage_path = {"color": "#FF7700", "weight": 0, "opacity": 0.4};
+    const styles_F4_damage_path = {"color": "#EE0000", "weight": 0, "opacity": 0.4};
+    const styles_F5_damage_path = {"color": "#990077", "weight": 0, "opacity": 0.4};
+    const styles_StartMarker = {"color": "#FFFFFF", "weight": 3, "opacity": 0.6};
+
+    const FU_tornadoes = L.geoJSON();
+    const F0_tornadoes = L.geoJSON();
+    const F1_tornadoes = L.geoJSON();
+    const F2_tornadoes = L.geoJSON();
+    const F3_tornadoes = L.geoJSON();
+    const F4_tornadoes = L.geoJSON();
+    const F5_tornadoes = L.geoJSON();
+    const F6_tornadoes = L.geoJSON();
+    const FU_StartMarkers = L.geoJSON();
+    const F0_StartMarkers = L.geoJSON();
+    const F1_StartMarkers = L.geoJSON();
+    const F2_StartMarkers = L.geoJSON();
+    const F3_StartMarkers = L.geoJSON();
+    const F4_StartMarkers = L.geoJSON();
+    const F5_StartMarkers = L.geoJSON();
+    const F6_StartMarkers = L.geoJSON();
+    const FU_damage_paths = L.geoJSON();
+    const F0_damage_paths = L.geoJSON();
+    const F1_damage_paths = L.geoJSON();
+    const F2_damage_paths = L.geoJSON();
+    const F3_damage_paths = L.geoJSON();
+    const F4_damage_paths = L.geoJSON();
+    const F5_damage_paths = L.geoJSON();
+    const F6_damage_paths = L.geoJSON();
+    
+    const imagemap_layer = L.layerGroup();
+
+    var totalTornadoes = 0;
+    var totalDeaths = 0;
+    var totalInjuries = 0;
+    var totalOIS = 0;
+    var totalLength = 0;
+    var totalDuration = 0;
+
+    const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+    });
+	const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    const osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+    });
+    const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    });
+</script>
+
+<script src="Tornado_Popup.js"></script>
+<script src="Tornado_Filters.js"></script>
+<script src="Tornado_Constructor.js"></script>
+
+<script src="TornadoPaths/Season_001877.js"></script>
+<script src="TornadoPaths/Season_001904.js"></script>
+<script src="TornadoPaths/Season_001905.js"></script>
+<script src="TornadoPaths/Season_001906.js"></script>
+<script src="TornadoPaths/Season_001907.js"></script>
+<script src="TornadoPaths/Season_001908.js"></script>
+<script src="TornadoPaths/Season_001909.js"></script>
+<script src="TornadoPaths/Season_001910.js"></script>
+<script src="TornadoPaths/Season_001911.js"></script>
+<script src="TornadoPaths/Season_001912.js"></script>
+<script src="TornadoPaths/Season_001913.js"></script>
+<script src="TornadoPaths/Season_001920.js"></script>
+<script src="TornadoPaths/Season_001921.js"></script>
+<script src="TornadoPaths/Season_001922.js"></script>
+<script src="TornadoPaths/Season_001923.js"></script>
+<script src="TornadoPaths/Season_001924.js"></script>
+<script src="TornadoPaths/Season_001925.js"></script>
+<script src="TornadoPaths/Season_001926.js"></script>
+<script src="TornadoPaths/Season_001927.js"></script>
+<script src="TornadoPaths/Season_001928.js"></script>
+<script src="TornadoPaths/Season_001929.js"></script>
+<script src="TornadoPaths/Season_001930.js"></script>
+<script src="TornadoPaths/Season_001931.js"></script>
+<script src="TornadoPaths/Season_001932.js"></script>
+<script src="TornadoPaths/Season_001933.js"></script>
+<script src="TornadoPaths/Season_001934.js"></script>
+<script src="TornadoPaths/Season_001935.js"></script>
+<script src="TornadoPaths/Season_001936.js"></script>
+<script src="TornadoPaths/Season_001937.js"></script>
+<script src="TornadoPaths/Season_001938.js"></script>
+<script src="TornadoPaths/Season_001939.js"></script>
+<script src="TornadoPaths/Season_001940.js"></script>
+<script src="TornadoPaths/Season_001941.js"></script>
+<script src="TornadoPaths/Season_001942.js"></script>
+<script src="TornadoPaths/Season_001943.js"></script>
+<script src="TornadoPaths/Season_001944.js"></script>
+<script src="TornadoPaths/Season_001945.js"></script>
+<script src="TornadoPaths/Season_001946.js"></script>
+<script src="TornadoPaths/Season_001947.js"></script>
+<script src="TornadoPaths/Season_001948.js"></script>
+<script src="TornadoPaths/Season_001949.js"></script>
+<script src="TornadoPaths/Season_001950.js"></script>
+<script src="TornadoPaths/Season_001951.js"></script>
+<script src="TornadoPaths/Season_001952.js"></script>
+<script src="TornadoPaths/Season_001953.js"></script>
+<script src="TornadoPaths/Season_001954.js"></script>
+<script src="TornadoPaths/Season_001955.js"></script>
+<script src="TornadoPaths/Season_001956.js"></script>
+<script src="TornadoPaths/Season_001957.js"></script>
+<script src="TornadoPaths/Season_001958.js"></script>
+<script src="TornadoPaths/Season_001959.js"></script>
+<script src="TornadoPaths/Season_001960.js"></script>
+<script src="TornadoPaths/Season_001961.js"></script>
+<script src="TornadoPaths/Season_001962.js"></script>
+<script src="TornadoPaths/Season_001963.js"></script>
+<script src="TornadoPaths/Season_001964.js"></script>
+<script src="TornadoPaths/Season_001965.js"></script>
+<script src="TornadoPaths/Season_001966.js"></script>
+<script src="TornadoPaths/Season_001967.js"></script>
+<script src="TornadoPaths/Season_001968.js"></script>
+<script src="TornadoPaths/Season_001969.js"></script>
+<script src="TornadoPaths/Season_001970.js"></script>
+<script src="TornadoPaths/Season_001971.js"></script>
+<script src="TornadoPaths/Season_001972.js"></script>
+<script src="TornadoPaths/Season_001973.js"></script>
+<script src="TornadoPaths/Season_001974.js"></script>
+<script src="TornadoPaths/Season_001975.js"></script>
+<script src="TornadoPaths/Season_001976.js"></script>
+<script src="TornadoPaths/Season_001977.js"></script>
+<script src="TornadoPaths/Season_001978.js"></script>
+<script src="TornadoPaths/Season_001979.js"></script>
+<script src="TornadoPaths/Season_001980.js"></script>
+<script src="TornadoPaths/Season_001981.js"></script>
+<script src="TornadoPaths/Season_001982.js"></script>
+<script src="TornadoPaths/Season_001983.js"></script>
+<script src="TornadoPaths/Season_001984.js"></script>
+<script src="TornadoPaths/Season_001985.js"></script>
+<script src="TornadoPaths/Season_001986.js"></script>
+<script src="TornadoPaths/Season_001987.js"></script>
+<script src="TornadoPaths/Season_001988.js"></script>
+<script src="TornadoPaths/Season_001989.js"></script>
+<script src="TornadoPaths/Season_001990.js"></script>
+<script src="TornadoPaths/Season_001991.js"></script>
+<script src="TornadoPaths/Season_001992.js"></script>
+<script src="TornadoPaths/Season_001993.js"></script>
+<script src="TornadoPaths/Season_001994.js"></script>
+<script src="TornadoPaths/Season_001995.js"></script>
+<script src="TornadoPaths/Season_001996.js"></script>
+<script src="TornadoPaths/Season_001997.js"></script>
+<script src="TornadoPaths/Season_001998.js"></script>
+<script src="TornadoPaths/Season_001999.js"></script>
+<script src="TornadoPaths/Season_002000.js"></script>
+<script src="TornadoPaths/Season_002001.js"></script>
+<script src="TornadoPaths/Season_002002.js"></script>
+<script src="TornadoPaths/Season_002003.js"></script>
+<script src="TornadoPaths/Season_002004.js"></script>
+<script src="TornadoPaths/Season_002005.js"></script>
+<script src="TornadoPaths/Season_002006.js"></script>
+<script src="TornadoPaths/Season_002007.js"></script>
+<script src="TornadoPaths/Season_002008.js"></script>
+<script src="TornadoPaths/Season_002009.js"></script>
+<script src="TornadoPaths/Season_002010.js"></script>
+<script src="TornadoPaths/Season_002011.js"></script>
+<script src="TornadoPaths/Season_002012.js"></script>
+<script src="TornadoPaths/Season_002013.js"></script>
+<script src="TornadoPaths/Season_002014.js"></script>
+<script src="TornadoPaths/Season_002015.js"></script>
+<script src="TornadoPaths/Season_002016.js"></script>
+<script src="TornadoPaths/Season_002017.js"></script>
+<script src="TornadoPaths/Season_002018.js"></script>
+<script src="TornadoPaths/Season_002019.js"></script>
+<script src="TornadoPaths/Season_002020.js"></script>
+<script src="TornadoPaths/Season_002021.js"></script>
+<script src="TornadoPaths/Season_002022.js"></script>
+<script src="TornadoPaths/Season_002023.js"></script>
+<script src="TornadoPaths/Season_002024.js"></script>
+<script src="TornadoPaths/Season_002025.js"></script>
+<script src="TornadoPaths/Season_002026.js"></script>
+	
+<script>
+	// const map = L.map('map', {
+    //     minZoom: 1,
+    //     maxZoom: 15,
+    //     layers: [esri, FU_damage_paths, F0_damage_paths, F1_damage_paths, F2_damage_paths, F3_damage_paths, F4_damage_paths, F5_damage_paths, FU_tornadoes, FU_startMarkers, F0_tornadoes, F0_startMarkers, F1_tornadoes, F1_startMarkers, F2_tornadoes, F2_startMarkers, F3_tornadoes, F3_startMarkers, F4_tornadoes, F4_startMarkers, F5_tornadoes, F5_startMarkers, startMarkers]
+	// }).setView([-25, -60],4);
+
+    // const layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+
+	// L.control.scale().addTo(map);
+	// const Coordinates = L.Control.extend({
+    // onAdd: map => {
+	// 	const container = L.DomUtil.create("div");
+	// 	map.addEventListener("mousemove", e => {
+	// 		container.innerHTML = `
+	// 		Mouse: 
+	// 		${e.latlng.lat.toFixed(4)}°N, 
+	// 		${e.latlng.lng.toFixed(4)}°E
+	// 		`;
+	// 	});
+	// 	return container;
+	// }
+	// });
+	// map.addControl(new Coordinates({ position: "bottomleft" }));
+
+    // seasonMIN = 945;
+    // seasonMAX = 945;
+    // yearMIN = 940;
+    // yearMAX = 941;
+    // monthMIN = 4;
+    // monthMAX = 3;
+    // dayMIN = 1;
+    // dayMAX = 13;
+    // locerrorMIN = -99;
+    // locerrorMAX = 0.25;
+	const heightmap_layer = L.layerGroup();
+	const map_image = L.imageOverlay("Theirys_States_Mercator.png", [[-90, -180],[90, 180]])
+	const tileLayer = L.tileLayer('MapTiles/{z}_{x}_{y}.png')
+	const map = L.map('map', {
+		minZoom: 2,
+		maxZoom: 14,
+    	zoomSnap: 0.5,
+		zoomDelta: 0.5,
+		wheelPxPerZoomLevel: 90,
+		layers: [esri]
+	}).setView([-25, -60],4);
+
+	const imagemap = L.imageOverlay("images/19930413_Buenos_Aires_1.png", [[-39.18, -63.72],[-35.48, -57]], {
+        opacity: 0.5,
+    }).addTo(imagemap_layer)
+
+    const baseLayers = {
+        "OpenStreetMap": osm,
+        "OpenStreetMap.HOT": osmHOT,
+        "OpenTopoMap": openTopoMap,
+        "Esri": esri
+    };
+    const overlays = {
+        "image map": imagemap_layer
+    };
+
+    const layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+
+	L.control.scale().addTo(map);
+	const Coordinates = L.Control.extend({
+    onAdd: map => {
+		const container = L.DomUtil.create("div");
+		map.addEventListener("mousemove", e => {
+			container.innerHTML = `
+			Mouse: 
+			${e.latlng.lat.toFixed(4)}°N, 
+			${e.latlng.lng.toFixed(4)}°E
+			`;
+		});
+		return container;
+	}
+	});
+	map.addControl(new Coordinates({ position: "bottomleft" }));
+
+    function numLeng(number, length) {
+        var my_string = '' + number;
+        while (my_string.length < length) {
+            my_string = '0' + my_string;
+        }
+        return my_string;
+    }
+
+    FU_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(FU_tornadoes, layer)
+    });
+    F0_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F0_tornadoes, layer)
+    });
+    F1_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F1_tornadoes, layer)
+    });
+    F2_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F2_tornadoes, layer)
+    });
+    F3_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F3_tornadoes, layer)
+    });
+    F4_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F4_tornadoes, layer)
+    });
+    F5_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F5_tornadoes, layer)
+    });
+    if (ratingALLOW["U"] == true) {
+        FU_tornadoes.addTo(map);
+        FU_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["0"] == true) {
+        F0_tornadoes.addTo(map);
+        F0_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["1"] == true) {
+        F1_tornadoes.addTo(map);
+        F1_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["2"] == true) {
+        F2_tornadoes.addTo(map);
+        F2_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["3"] == true) {
+        F3_tornadoes.addTo(map);
+        F3_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["4"] == true) {
+        F4_tornadoes.addTo(map);
+        F4_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["5"] == true) {
+        F5_tornadoes.addTo(map);
+        F5_StartMarkers.addTo(map);
+    }
+</script>
+
+
+
+</body></html>
