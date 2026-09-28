@@ -1,6 +1,0 @@
-const tornado_2020_08_14_9999_01 = L.polyline([[-26.39, -50.77],[-26.39, -50.77]], styles_FU).bindPopup(
-    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 2020/08/14</h2></th></tr> <tr><th>Start time</th><td>Na tarde de sexta-feira, 14 agosto 2020</td></tr> <tr><th>Rating</th><td>?</td></tr> <tr><th>Fontes</th><td><a target='_blank' href='https://g1.globo.com/sc/santa-catarina/noticia/2020/08/15/videos-mostram-tornado-atingindo-cidade-do-norte-de-santa-catarina.ghtml'>[1]:g1</a></td></tr> <tr><th>Comments</th><td></td></tr>"
-).addTo(FU_tornadoes);
-const tornado_2020_08_14_9999_02 = L.polyline([[-27.00, -51.56],[-27.00, -51.56]], styles_FU).bindPopup(
-    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 2020/08/14</h2></th></tr> <tr><th>Start time</th><td>Na tarde de sexta-feira, 14 agosto 2020</td></tr> <tr><th>Rating</th><td>?</td></tr> <tr><th>Fontes</th><td><a target='_blank' href='https://g1.globo.com/sc/santa-catarina/noticia/2020/08/15/videos-mostram-tornado-atingindo-cidade-do-norte-de-santa-catarina.ghtml'>[1]:g1</a></td></tr> <tr><th>Comments</th><td></td></tr>"
-).addTo(FU_tornadoes);

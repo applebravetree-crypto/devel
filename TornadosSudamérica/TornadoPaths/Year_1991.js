@@ -1,4 +1,0 @@
-const tornado_1991_08_16_1730 = L.polyline([[-26.12, -50.49],[-26.15, -50.36]], styles_F2).bindPopup(
-    "<table><thead><tr><th class='popup_header_F2' colspan=2 style='text-align: center;'><h2>F2 Tornado - 1991/08/16</h2></th></tr> <tr><th>Start time</th><td>17:30, viernes, 16 agosto 1991<sup title='Page 8'>[1:8]</sup></td></tr> <tr><th>Windspeed</th><td>190 km/h<sup title='Page 8'>[1:8]</sup></td></tr> <tr><th>Mortes</th><td>0<sup title='Page 8'>[1:8]</sup></td></tr> <tr><th>Ferimentos</th><td>8<sup title='Page 8'>[1:8]</sup></td></tr> <tr><th>Fontes</th><td><a target='_blank' href='https://memoria.bn.gov.br/docreader/DocReader.aspx?bib=886408&pagfis=14223'>[1]:Correio do NORTE (Pages 1 & 8)</a></td></tr> <tr><th>Comments</th><td>Actual path unknown.</td></tr>"
-).addTo(F2_tornadoes);
-const tornado_1991_08_16_1730_StartMarker = L.polyline([[-26.12, -50.49],[-26.12, -50.49]], styles_StartMarker).addTo(F2_startMarkers);
