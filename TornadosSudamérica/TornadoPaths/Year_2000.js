@@ -1,0 +1,3 @@
+const tornado_2000_10_11_9999 = L.polyline([[-30.14, -50.89],[-30.14, -50.89]], styles_F3).bindPopup(
+    "<table><thead><tr><th class='popup_header_F3' colspan=2 style='text-align: center;'><h2>F3 Tornado - 2000/10/11</h2></th></tr> <tr><th>Start time</th><td>Quarta-feira, 11 outubro 2000</td></tr> <tr><th>Rating</th><td>F3</td></tr> <tr><th>Fontes</th><td><a target='_blank' href='https://web.archive.org/web/20260510031456/https://metsul.com/pode-um-tornado-como-dos-estados-unidos-atingir-o-estado/'>[1]:Metsul</a></td></tr> <tr><th>Comments</th><td></td></tr>"
+).addTo(F3_tornadoes);

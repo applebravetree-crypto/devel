@@ -1,0 +1,3 @@
+const tornado_1996_02_27_9999 = L.polyline([[-26.77, -53.19],[-26.77, -53.19]], styles_F1).bindPopup(
+    "<table><thead><tr><th class='popup_header_F1' colspan=2 style='text-align: center;'><h2>F1 Tornado - 1996/02/27</h2></th></tr> <tr><th>Start time</th><td>Terça-feira, 27 fevereiro 1996</td></tr> <tr><th>Rating</th><td>F1</td></tr> <tr><th>Fontes</th><td><a target='_blank' href='https://teses.usp.br/teses/disponiveis/90/90131/tde-02052013-160126/publico/DISSERTACAO_BRUNO_BERTONI.pdf'>[1]:ESTUDOS DE CASO DE TORNADOS, USO E OCUPA&#xC7;ÃO DO SOLO, TOPOGRAFIA E ANÁLISE METEOROLÓGICA DESTES EVENTOS ATMOSFÉRICOS NO SUL E SUDESTE DO BRASIL | Universidade de São Paulo (Page 50)</a></td></tr> <tr><th>Comments</th><td></td></tr>"
+).addTo(F1_tornadoes);

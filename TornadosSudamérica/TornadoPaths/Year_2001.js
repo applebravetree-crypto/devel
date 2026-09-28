@@ -1,0 +1,3 @@
+const tornado_2001_07_20_9999 = L.polyline([[-27.779, -54.232],[-27.779, -54.232]], styles_FU).bindPopup(
+    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 2001/07/20</h2></th></tr> <tr><th>Start time</th><td>Friday, 20 July 2001</td></tr> <tr><th>Rating</th><td>Unrated</td></tr> <tr><th>Sources</th><td><a target='_blank' href='https://teses.usp.br/teses/disponiveis/90/90131/tde-02052013-160126/publico/DISSERTACAO_BRUNO_BERTONI.pdf'>[1]:ESTUDOS DE CASO DE TORNADOS, USO E OCUPA&#xC7;ÃO DO SOLO, TOPOGRAFIA E ANÁLISE METEOROLÓGICA DESTES EVENTOS ATMOSFÉRICOS NO SUL E SUDESTE DO BRASIL | Universidade de São Paulo (Page 49)</a></td></tr> <tr><th>Comments</th><td></td></tr>"
+).addTo(FU_tornadoes);

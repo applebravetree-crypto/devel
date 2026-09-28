@@ -1,0 +1,12 @@
+const tornado_2014_01_02_9999 = L.polyline([[-27.769, -64.255],[-27.769, -64.255]], styles_FU).bindPopup(
+    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 2014/01/02</h2></th></tr> <tr><th>Start time</th><td>Thursday, 2 January 2014</td></tr> <tr><th>Rating</th><td>Unrated</td></tr> <tr><th>Deaths</th><td>1</td></tr> <tr><th>Sources</th><td><a target='_blank' href='https://www.elliberal.com.ar/nota/-128641/2014/01/el-tornado-de-santiago-tuvo-repercusiones-en-todo-el-pais'>[1]:EL LIBERAL</a></td></tr> <tr><th>Comments</th><td><i>Ciudad Santiago del Estero</i> & <i>La Banda</i> were both hit by this tornado, but it is not known what direction this tornado moved.</td></tr>"
+).addTo(FU_tornadoes);
+const tornado_2014_01_10_9999 = L.polyline([[-34.584, -60.700],[-34.584, -60.700]], styles_FU).bindPopup(
+    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 2014/01/10</h2></th></tr> <tr><th>Start time</th><td>Friday, 10 January 2014</td></tr> <tr><th>Rating</th><td>Unrated</td></tr> <tr><th>Sources</th><td><a target='_blank' href='https://www.youtube.com/watch?v=q1hUMcWhAYI'>[1]:<i>Lider Chacabuco</i> | YouTube</a></td></tr> <tr><th>Comments</th><td></td></tr>"
+).addTo(FU_tornadoes);
+const tornado_2014_11_11_9999 = L.polyline([[-29.502, -63.695],[-29.502, -63.695]], styles_FU).bindPopup(
+    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 2014/11/11</h2></th></tr> <tr><th>Start time</th><td>Tuesday, 11 November 2014</td></tr> <tr><th>Rating</th><td>Unrated</td></tr> <tr><th>Sources</th><td><a target='_blank' href='https://web.archive.org/web/20260519181704/https://www.primerafuente.com.ar/noticia/270559-graves-danos-por-tornado-en-santiago-del-estero'>[1]:primerafuente</a></td></tr> <tr><th>Comments</th><td></td></tr>"
+).addTo(FU_tornadoes);
+const tornado_2014_11_29_9999 = L.polyline([[-32.21, -58.22],[-32.21, -58.22]], styles_FU).bindPopup(
+    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 2014/11/29</h2></th></tr> <tr><th>Start time</th><td>22:00, martes, 29 noviembre 2014</td></tr> <tr><th>Rating</th><td>Unrated</td></tr> <tr><th>Sources</th><td><a target='_blank' href='https://www.unoentrerios.com.ar/fuerte-tormenta-causo-severos-danos-materiales-san-jose-n927825.html'>[1]:Uno Entre Ríos</a></td></tr> <tr><th>Comments</th><td></td></tr>"
+).addTo(FU_tornadoes);

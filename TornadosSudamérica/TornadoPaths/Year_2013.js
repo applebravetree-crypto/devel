@@ -1,0 +1,3 @@
+const tornado_2013_10_12_9999 = L.polyline([[-26.677, -64.007],[-26.677, -64.007]], styles_FU).bindPopup(
+    "<table><thead><tr><th class='popup_header_FU' colspan=2 style='text-align: center;'><h2>Tornado - 2013/10/12</h2></th></tr> <tr><th>Start time</th><td>Saturday, 12 October 2013</td></tr> <tr><th>Rating</th><td>Unrated</td></tr> <tr><th>Deaths</th><td>0</td></tr> <tr><th>Injuries</th><td>0</td></tr> <tr><th>Sources</th><td><a target='_blank' href='https://www.infobae.com/2013/10/12/1515684-un-tornado-provoco-serios-danos-santiago-del-estero/'>[1]:infobae</a></td></tr> <tr><th>Comments</th><td></td></tr>"
+).addTo(F2_tornadoes);
