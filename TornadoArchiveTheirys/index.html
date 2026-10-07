@@ -14,7 +14,7 @@
 </head>
 <body class="" style="background-color: #213C51;">
 
-<div id="map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative; height: 88%; outline-style: none;">
+<div id="map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative; height: 100%; outline-style: none;">
 	
 	<div class="leaflet-control-container">
 		<div class="leaflet-top leaflet-left">
@@ -88,15 +88,6 @@
 	</div>
 </div>
 
-<div class="tornado_ui" style="z-index: 800; position: absolute; bottom: 0; height: 12%; width: 100%;">
-    <div class="subdiv">
-        <div id="value_seasonMIN"></div>
-        <div id="value_seasonMAX"></div>
-    </div>
-    <p id="clicked_coords"></p>
-    <button id="remove_button" onclick="removeText()">Remove</button>
-    <button id="toggle_button" onclick="toggle()">Toggle path-making</button>
-</div>
 <script>
     
     const styles_FU = {"color": "#333333", "weight": 6};
@@ -518,33 +509,5 @@
         F6_tornadoes.addTo(map);
         F6_StartMarkers.addTo(map);
     }
-
-    var pathmakerActive = false
-    var removeButton = document.getElementById("remove_button")
-    var clickedCoords = document.getElementById("clicked_coords")
-    map.on("click", function (e) {
-        if (pathmakerActive == true) {
-            var comma = ""
-            if (clickedCoords.innerHTML != "") {
-                comma = ","
-            }
-            var lat = Math.round((e.latlng.lat + ((Math.random() * 0.0006)-0.0003)) * 10000)/10000
-            var lng = Math.round((e.latlng.lng + ((Math.random() * 0.0006)-0.0003)) * 10000)/10000
-            // console.log(e.latlng.lng)
-            clickedCoords.innerHTML += comma + "[" + lng + ", " + lat + "]"
-        }
-    })
-
-    function removeText () {
-        clickedCoords.innerHTML = ""
-    }
-    function toggle () {
-        if (pathmakerActive == false) {
-            pathmakerActive = true
-        } else {
-            pathmakerActive = false
-        }
-    }
-    // removeButton.onclick(removeText())
 </script>
 </body></html>
