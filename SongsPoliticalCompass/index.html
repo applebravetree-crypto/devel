@@ -15,7 +15,7 @@
 </head>
 <body class="body" style="background-color: #213C51;">
 
-<div id="map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative; height: 100%; outline-style: none;">
+<div id="map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative; height: 88%; outline-style: none;">
 	
 	<div class="leaflet-control-container">
 		<div class="leaflet-top leaflet-left">
@@ -88,7 +88,16 @@
 		</div>
 	</div>
 </div>
-  
+
+<div class="tornado_ui" style="z-index: 800; position: absolute; bottom: 0; height: 12%; width: 100%;">
+    <div class="subdiv">
+        <div id="value_seasonMIN"></div>
+        <div id="value_seasonMAX"></div>
+    </div>
+    <p id="clicked_coords"></p>
+    <button id="remove_button" onclick="removeText()">Remove</button>
+    <button id="toggle_button" onclick="toggle()">Toggle path-making</button>
+</div>
 <script>
     
     const styles_pop = {"color": "#333333", "weight": 6};
@@ -97,7 +106,6 @@
     const styles_house = {"color": "#0066CC", "weight": 6};
     const styles_poprock = {"color": "#DDBB11", "weight": 6};
     const styles_funk = {"color": "#FF7700", "weight": 6};
-    const styles_postpunk = {"color": "#FF7700", "weight": 6};
     const styles_rock = {"color": "#EE0000", "weight": 6};
     const styles_metal = {"color": "#990077", "weight": 6};
     
@@ -121,7 +129,6 @@
 	var house = L.geoJSON()
 	var poprock = L.geoJSON()
 	var funk = L.geoJSON()
-	var postpunk = L.geoJSON()
 	var rock = L.geoJSON()
 	var metal = L.geoJSON()
     
@@ -142,9 +149,9 @@
 	const houseIcon = new LeafIcon({iconUrl: 'Icons/house.png'});
 	const poprockIcon = new LeafIcon({iconUrl: 'Icons/poprock.png'});
 	const funkIcon = new LeafIcon({iconUrl: 'Icons/funk.png'});
-	const postpunkIcon = new LeafIcon({iconUrl: 'Icons/postpunk.png'});
 	const rockIcon = new LeafIcon({iconUrl: 'Icons/rock.png'});
 	const metalIcon = new LeafIcon({iconUrl: 'Icons/metal.png'});
+	const averageIcon = new LeafIcon({iconUrl: 'Icons/average.png', iconSize: [12, 12], iconAnchor: [6, 6]});
 </script>
 <script src="Constructor.js"></script>
 <script src="Filters.js"></script>
@@ -209,6 +216,12 @@
 <script src="Songs/y002026.js"></script>
 	
 <script>
+    // yearMIN = 2003;
+    // yearMAX = 2003;
+    genreFiltered=false
+    subgenreFiltered=false
+    genreALLOW["rock"]=false
+    subgenreALLOW["dancepop"]=true
 	const compass = L.imageOverlay("CompassImage.png", [[100, 100],[-100, -100]])
 	const map = L.map('map', {
 		crs: L.CRS.Simple,
@@ -271,28 +284,30 @@
     metal.eachLayer(function (layer) {
         constructor(metal, layer)
     });
-    if (genreALLOW["pop"] == true) {
+    console.log(allLats)
+    averageLocationPopup.setLatLng([allLats/numCoords,allLngs/numCoords]).setIcon(averageIcon).addTo(map);
+    if (genreFiltered==false || genreALLOW["pop"] == true) {
         pop.addTo(map);
     }
-    if (genreALLOW["electronic"] == true) {
+    if (genreFiltered==false || genreALLOW["electronic"] == true) {
         electronic.addTo(map);
     }
-    if (genreALLOW["hiphop"] == true) {
+    if (genreFiltered==false || genreALLOW["hiphop"] == true) {
         hiphop.addTo(map);
     }
-    if (genreALLOW["house"] == true) {
+    if (genreFiltered==false || genreALLOW["house"] == true) {
         house.addTo(map);
     }
-    if (genreALLOW["poprock"] == true) {
+    if (genreFiltered==false || genreALLOW["poprock"] == true) {
         poprock.addTo(map);
     }
-    if (genreALLOW["funk"] == true) {
+    if (genreFiltered==false || genreALLOW["funk"] == true) {
         funk.addTo(map);
     }
-    if (genreALLOW["rock"] == true) {
+    if (genreFiltered==false || genreALLOW["rock"] == true) {
         rock.addTo(map);
     }
-    if (genreALLOW["metal"] == true) {
+    if (genreFiltered==false || genreALLOW["metal"] == true) {
         metal.addTo(map);
     }
     // F0_tornadoes.addTo(map);
@@ -346,7 +361,4 @@
     }
     // removeButton.onclick(removeText())
 </script>
-
-
-
 </body></html>
