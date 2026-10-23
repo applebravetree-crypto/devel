@@ -5,18 +5,22 @@ var genreNames = {
     "house":"house",
     "poprock":"pop-rock",
     "funk":"funk",
-    "postpunk":"post-punk",
-    "rock":"rock",
     "metal":"metal",
     "pop":"pop",
-    "britpop":"britpop",
     "dancepop":"dance-pop",
     "synthpop":"synth-pop",
     "rock":"rock",
+    "dancerock":"dance-rock",
+    "countryrock":"country-rock",
+    "gothrock":"goth-rock",
+    "punk":"punk",
+    "postpunk":"post-punk",
     "newwave":"new-wave",
-    "walkawaynewwave":"&quot;walkaway&quot; new-wave",
+    "coldwave":"coldwave",
+    "walkawaynewwave":"&quot;Walk Away&quot; new-wave",
     "funkrock":"funk-rock",
     "electronic":"electronic",
+    "edm":"EDM",
     "disco":"disco",
     "R&B":"R&B",
     "soul":"soul",
@@ -76,6 +80,9 @@ function tornadoClicked(e) {
     txtArtists += "</td></tr> "
     L.popup()
         .setLatLng(e.latlng)
-        .setContent("<table><thead><tr><th class='popup_header_" + prop.genre + "' colspan='99'><h2> &quot;" + prop.title + "&quot; &ndash; " + prop.release[0] + "</h2></th></tr></thead> <tbody><tr><th>Released</th><td>" + txtTime + txtDate + "</td></tr> <tr><th>Last updated</th><td>" + txtUpdDate + "</td></tr> " + txtArtists + "<tr><th>Genre</th><td>" + genreNames[prop.genre] + "</td></tr> " + txtSubgenre + txtLength + txtLink + "</tbody><table>")
+        .setContent("<table><thead><tr><th class='popup_header_" + prop.genre + "' colspan='99'><h2>&quot;" + prop.title + "&quot; (" + prop.release[0] + ")</h2></th></tr></thead> <tbody>" + txtArtists + " <tr><th>Released</th><td>" + txtTime + txtDate + "</td></tr> <tr><th>Last updated</th><td>" + txtUpdDate + "</td></tr> <tr><th>Genre</th><td>" + genreNames[prop.genre] + "</td></tr> " + txtSubgenre + txtLength + txtLink + "</tbody><table>")
         .openOn(map);
+    console.log(e.latlng["lat"])
+    allLats.push(e.latlng["lat"])
+    averageLocationPopup.setLatLng(e.latlng).addTo(map);
 }
