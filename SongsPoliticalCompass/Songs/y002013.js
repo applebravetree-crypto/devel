@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-14.58, 4.46]},"properties": {"release":[2013,5,17], "update":[2026,10,23], "title":"Love Me Again", "artists":["John Newman"], "lang":["en"], "genre":"poprock", "subgenre":["poprock"], "length":217, "link":["yt","CfihYWRWRTQ"]}});

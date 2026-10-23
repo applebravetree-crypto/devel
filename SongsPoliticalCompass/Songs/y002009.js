@@ -1,0 +1,1 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-11.2, -51.58]},"properties": {"release":[2009,1,12], "update":[2026,10,16], "title":"To Lose My Life", "artists":["White Lies"], "lang":["en"], "genre":"poprock", "subgenre":["poprock"], "length":186, "link":["yt","GGEjz12YLiM"]}});

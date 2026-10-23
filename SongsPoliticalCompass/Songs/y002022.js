@@ -1,0 +1,1 @@
+pop.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [10.23, -5.75]},"properties": {"release":[2022,8,25], "update":[2026,10,23], "title":"High and Low", "artists":["Sea of Sin"], "lang":["en"], "genre":"pop", "subgenre":["newwave","synthpop"], "length":217, "link":["yt","iOvCJNQBX0o"]}});

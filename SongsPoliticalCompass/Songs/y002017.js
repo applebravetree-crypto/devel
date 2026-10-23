@@ -1,0 +1,1 @@
+pop.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [67.18, 45.38]},"properties": {"release":[2017,11,3], "update":[2026,10,15], "title":"Como Va", "artists":["Catherine Ringer"], "lang":["fr"], "genre":"pop", "subgenre":["pop"], "length":224, "link":["yt","r63mP7HeySk"]}});

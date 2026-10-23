@@ -1,0 +1,1 @@
+pop.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [23.07, -38.28]},"properties": {"release":[2023,1,13], "update":[2026,10,23], "title":"Ma Place", "artists":["RORI"], "lang":["en"], "genre":"pop", "subgenre":["pop"], "length":160, "link":["yt","_Oz0xHgRvvw"]}});

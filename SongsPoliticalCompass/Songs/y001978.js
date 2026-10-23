@@ -1,0 +1,3 @@
+poprock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [8.84, 39.37]},"properties": {"release":[1978,3,2], "update":[2026,9,20], "title":"Because the Night", "artists":["Patti Smith Group"], "lang":["en"], "genre":"poprock", "subgenre":["poprock"], "length":197, "link":["yt","wDlKTQ3Ig7A"]}});
+rock.addData({"type": "Feature","geometry": {"type": "Point","coordinates": [-14.81, 23.5]},"properties": {"release":[1978,6,-99], "update":[2026,10,23], "title":"Surrender", "artists":["Cheap Trick"], "lang":["en"], "genre":"rock", "subgenre":["rock"], "length":251, "link":["yt","T_Km11HNzUY"]}});
+
