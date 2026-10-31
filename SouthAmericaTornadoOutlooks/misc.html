@@ -9,9 +9,9 @@
     <script>
         var month = 7
         var monthList = [12,1,2,3,4,5,6,7,8,9,10,11,12,1]
-        function changeimg() {
+        function changeimg(dir) {
             var mapdiv = document.getElementById("avg_risk_div");
-            month=monthList[month+1]
+            month=monthList[month+dir]
             var leadZ="0"
             if (month>9) {
                 leadZ=""
@@ -44,7 +44,7 @@
         
         <h2 id="average_risk_level_by_month avg_risk">Average risk level by month</h2>
         <div>
-            <button class="headerSortButton" onclick="changeimg(0)"><&mdash;</button>
+            <button class="headerSortButton" onclick="changeimg(-1)"><&mdash;</button>
              - 
             <button class="headerSortButton" onclick="changeimg(1)">&mdash;></button>
             <hr>
