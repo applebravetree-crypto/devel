@@ -10,7 +10,7 @@
         var month = 7
         var monthList = [12,1,2,3,4,5,6,7,8,9,10,11,12,1]
         function changeimg(dir) {
-            var mapdiv = document.getElementById("avg_risk_div");
+            var mapdiv = document.getElementById("avg_monthly_risk_div");
             month=monthList[month+dir]
             var leadZ="0"
             if (month>9) {
@@ -39,17 +39,22 @@
 
         <h2>Miscellaneous stuff</h2>
         
-        <h2 id="All_day-1_tornado-outlooks all_tor_outlooks">All South-American tornado-outlooks since 2026/06/18</h2>
+        <h2 id="all_tor_outlooks">All South-American tornado-outlooks since 2026/06/18</h2>
         <img src="images/SouthAmerica_Tornado_Outlook_Total.png" alt="" height="720">
         
-        <h2 id="average_risk_level_by_month avg_risk">Average risk level by month</h2>
+        <h2 id="avg_risk">Average risk level</h2>
+        <div id="avg_risk_div">
+            <img src="images/averagerisk/YR.png" alt="" height="640">
+        </div>
+        
+        <h2 id="avg_monthly_risk">Average risk level by month</h2>
         <div>
             <button class="headerSortButton" onclick="changeimg(-1)"><&mdash;</button>
              - 
             <button class="headerSortButton" onclick="changeimg(1)">&mdash;></button>
-            <hr>
+            <br>
         </div>
-        <div id="avg_risk_div">
+        <div id="avg_monthly_risk_div">
             <img src="images/averagerisk/07.png" alt="" height="640">
         </div>
         
