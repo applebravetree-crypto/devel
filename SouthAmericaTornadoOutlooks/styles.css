@@ -62,23 +62,7 @@ table.loc_bar {
     color: #FFFFFF;
 }
 .loc_bar_3 td {
-    background-color: #66001199;
-    color: #FFFFFF;
-}
-.loc_bar_4 td {
     background-color: #99008899;
-    color: #FFFFFF;
-}
-.loc_bar_5 td {
-    background-color: #11888899;
-    color: #FFFFFF;
-}
-.loc_bar_S td {
-    background-color: #FFBB9999;
-    color: #FFFFFF;
-}
-.loc_bar_V td {
-    background-color: #FFBB9999;
     color: #FFFFFF;
 }
 
@@ -200,27 +184,13 @@ b.MSC {
     color: #33AA11;
     font-weight: unset;
 }
-b.ELV {
-    color: #FFDD00;
-    font-weight: unset;
-}
 b.MDD {
-    color: #AA0022;
-    text-shadow: #000000 0px 0px 6px;
+    color: #FFDD00;
     font-weight: unset;
 }
 b.MYR {
     color: #FF00EE;
     font-weight: unset;
-}
-b.EXO {
-    color: #22EEEE;
-    font-weight: unset;
-}
-b.SIGTOR {
-    color: #FFBB99;
-    text-shadow: #000000 0px 0px 6px;
-    font-weight: bold;
 }
 th, td {
     text-align: center;
@@ -238,25 +208,13 @@ td.MSC {
     color: #000000;
     background-color: #33AA11;
 }
-td.ELV {
+td.MDD {
     color: #000000;
     background-color: #FFDD00;
-}
-td.MDD {
-    color: #ffffff;
-    background-color: #AA0022;
 }
 td.MYR {
     color: #ffffff;
     background-color: #FF00EE;
-}
-td.EXO {
-    color: #000000;
-    background-color: #22EEEE;
-}
-td.SIGTOR {
-    color: #000000;
-    background-color: #FFBB99;
 }
 .outlook_ul {
     list-style-type: none;
