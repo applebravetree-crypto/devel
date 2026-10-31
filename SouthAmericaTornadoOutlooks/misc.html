@@ -9,7 +9,7 @@
     <script>
         var month = 7
         var monthList = [12,1,2,3,4,5,6,7,8,9,10,11,12,1]
-        var monthList = ["Diciembre / Dezembro","Enero / Janeiro","Febrero / Fevereiro","Marzo / Março","Abril","Mayo / Maio","Junio / Junho","Julio / Julho","Agosto","Septiembre / Setembro","Octubre / Outubro","Noviembre / Novembro","Diciembre / Dezembro","Enero / Janeiro"]
+        var monthNames = ["Diciembre / Dezembro","Enero / Janeiro","Febrero / Fevereiro","Marzo / Março","Abril","Mayo / Maio","Junio / Junho","Julio / Julho","Agosto","Septiembre / Setembro","Octubre / Outubro","Noviembre / Novembro","Diciembre / Dezembro","Enero / Janeiro"]
         function changeimg(dir) {
             var mapdiv = document.getElementById("avg_monthly_risk_div");
             var label = document.getElementById("avg_monthly_label");
@@ -19,7 +19,7 @@
                 leadZ=""
             }
             mapdiv.innerHTML='<img src="images/averagerisk/' + leadZ + month + '.png" alt="" height="640">'
-            label.innerHTML=""
+            label.innerHTML=monthNames[month]
         };
     </script>
     
