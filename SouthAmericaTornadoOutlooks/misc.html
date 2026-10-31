@@ -28,15 +28,17 @@
         <img src="images/SouthAmerica_Tornado_Outlook_Total.png" alt="" height="720">
         
         <h2 id="average_risk_level_by_month avg_risk">Average risk level by month</h2>
+        <button onClick="changeimg()"></button>
         <div id="avg_risk_div">
             <img src="images/AverageRisk_07.png" alt="" height="640">
         </div>
         
         <script>
             var month = 7
+            var monthList = {12,1,2,3,4,5,6,7,8,9,10,11,12,1}
             const map = document.GetElementById("avg_risk_div");
             function changeimg () {
-                month+=1
+                month=monthList[month+1]
                 var leadZ="0"
                 if (month>9) {
                     leadZ=""
