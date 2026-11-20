@@ -1,4 +1,4 @@
-var monthNames = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"]
+var monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 function tornadoClicked(e) {
     console.log(e)
     var prop = e.sourceTarget.feature.properties
@@ -24,24 +24,24 @@ function tornadoClicked(e) {
         txtDate = prop.year
     }
     if (prop.width != -99) {
-        txtWidth = "<tr><th>Breedte</th><td>" + prop.width + " m</td></tr> "
+        txtWidth = "<tr><th>Width</th><td>" + prop.width + " m</td></tr> "
     }
     if (prop.length != -99) {
-        txtLength = "<tr><th>Lengte</th><td>" + prop.length + " km</td></tr> "
+        txtLength = "<tr><th>Length</th><td>" + prop.length + " km</td></tr> "
         if (prop.duration != -99) {
-            txtDuration = "<tr><th>Duur</th><td>" + prop.duration + " uur</td></tr> "
+            txtDuration = "<tr><th>Duration</th><td>" + prop.duration + " uur</td></tr> "
         } else {
-            txtDuration = "<tr><th>Duur</th><td>?</td></tr> "
+            txtDuration = "<tr><th>Duration</th><td>?</td></tr> "
         }
     }
     if (prop.duration != -99) {
-        txtDuration = "<tr><th>Duur</th><td>" + prop.duration + " uur</td></tr> "
+        txtDuration = "<tr><th>Duration</th><td>" + prop.duration + " uur</td></tr> "
     }
     if (prop.locerror != -99) {
-        txtLocError = "<tr><th>Locatie error</th><td>" + prop.locerror + " m</td></tr> "
+        txtLocError = "<tr><th>Location error</th><td>" + prop.locerror + " m</td></tr> "
     }
     L.popup()
         .setLatLng(e.latlng)
-        .setContent("<table><thead><tr><th class='popup_header_F" + prop.rating + "' colspan='99'><h2>EF" + prop.rating + " Tornado - " + prop.year + "/" + numLeng(prop.month, 2) + "/" + numLeng(prop.day, 2) + "</h2></th></tr></thead> <tbody><tr><th>Starttijd</th><td>" + txtTime + txtDate + "</td></tr> <tr><th>Intensiteit</th><td>EF" + prop.rating + "</td></tr> " + txtWidth + txtLength + txtDuration + txtLocError + "<tr><th>Opmerkingen</th><td>" + prop.comments + "</td></tr></tbody><table>")
+        .setContent("<table><thead><tr><th class='popup_header_F" + prop.rating + "' colspan='99'><h2>EF" + prop.rating + " Tornado - " + prop.year + "/" + numLeng(prop.month, 2) + "/" + numLeng(prop.day, 2) + "</h2></th></tr></thead> <tbody><tr><th>Start time</th><td>" + txtTime + txtDate + "</td></tr> <tr><th>Intensity</th><td>EF" + prop.rating + "</td></tr> " + txtWidth + txtLength + txtDuration + txtLocError + "<tr><th>Comments</th><td>" + prop.comments + "</td></tr></tbody><table>")
         .openOn(map);
 }
