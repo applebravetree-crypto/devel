@@ -23,6 +23,10 @@ th, td {
     max-width: 100%;
     max-height: 100%;
 }
+a.tablelink {
+    color: none;
+}
+
 table {
     border-collapse: collapse;
 }
