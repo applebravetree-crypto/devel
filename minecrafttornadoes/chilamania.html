@@ -3,7 +3,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Tornado Archive</title>
+	<title>Minecraft Tornadoes (Chilamania)</title>
 	
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico">
 
@@ -152,7 +152,9 @@
 <script src="Tornado_Filters.js"></script>
 <script src="Tornado_Constructor.js"></script>
 
-<script src="ChilamaniaII_jsTornadoes/Year_0000.js"></script>
+<script src="Chilamania_jsTornadoes/Year_0000.js"></script>
+<script src="Chilamania_jsTornadoes/Year_0001.js"></script>
+<script src="Chilamania_jsTornadoes/Year_0002.js"></script>
 
 <script>
     const mapLayer = L.imageOverlay("ChilamaniaII.png", [[-1800, -1800],[1800, 1800]], {
@@ -297,32 +299,32 @@
     F5_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
     F6_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
 
-    var pathmakerActive = false
-    var removeButton = document.getElementById("remove_button")
-    var clickedCoords = document.getElementById("clicked_coords")
-    map.on("click", function (e) {
-        if (pathmakerActive == true) {
-            var comma = ""
-            if (clickedCoords.innerHTML != "") {
-                comma = ","
-            }
-            var lat = Math.round((e.latlng.lat + ((Math.random() * 0.004)-0.002)) * 1000)/1000
-            var lng = Math.round((e.latlng.lng + ((Math.random() * 0.004)-0.002)) * 1000)/1000
-            // console.log(e.latlng.lng)
-            clickedCoords.innerHTML += comma + "[" + lng + ", " + lat + "]"
-        }
-    })
+    // var pathmakerActive = false
+    // var removeButton = document.getElementById("remove_button")
+    // var clickedCoords = document.getElementById("clicked_coords")
+    // map.on("click", function (e) {
+    //     if (pathmakerActive == true) {
+    //         var comma = ""
+    //         if (clickedCoords.innerHTML != "") {
+    //             comma = ","
+    //         }
+    //         var lat = Math.round((e.latlng.lat + ((Math.random() * 0.004)-0.002)) * 1000)/1000
+    //         var lng = Math.round((e.latlng.lng + ((Math.random() * 0.004)-0.002)) * 1000)/1000
+    //         // console.log(e.latlng.lng)
+    //         clickedCoords.innerHTML += comma + "[" + lng + ", " + lat + "]"
+    //     }
+    // })
 
-    function removeText () {
-        clickedCoords.innerHTML = ""
-    }
-    function toggle () {
-        if (pathmakerActive == false) {
-            pathmakerActive = true
-        } else {
-            pathmakerActive = false
-        }
-    }
+    // function removeText () {
+    //     clickedCoords.innerHTML = ""
+    // }
+    // function toggle () {
+    //     if (pathmakerActive == false) {
+    //         pathmakerActive = true
+    //     } else {
+    //         pathmakerActive = false
+    //     }
+    // }
     // removeButton.onclick(removeText())
 </script>
 
