@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Minecraft Tornadoes (Pintagiro)</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="body" style="background-color: #213C51;">
+
+<div id="map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative; outline-style: none;">
+	
+	<div class="leaflet-control-container">
+		<div class="leaflet-top leaflet-left">
+			<div class="leaflet-control-zoom leaflet-bar leaflet-control">
+				<a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false">
+					<span aria-hidden="true">+</span>
+				</a>
+				<a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false">
+					<span aria-hidden="true">−</span>
+				</a>
+			</div>
+		</div>
+		<div class="leaflet-top leaflet-right">
+
+		</div>
+		<div class="leaflet-bottom leaflet-left">
+
+		</div>
+		<div class="leaflet-bottom leaflet-right">
+			<div class="leaflet-control-attribution leaflet-control">
+				<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">
+					<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag">
+						<path fill="#4C7BE1" d="M0 0h12v4H0z">
+
+						</path>
+						<path fill="#FFD500" d="M0 4h12v3H0z">
+
+						</path>
+						<path fill="#E0BC00" d="M0 7h12v1H0z">
+
+						</path>
+					</svg> Leaflet
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="leaflet-control-container">
+		<div class="leaflet-top leaflet-left">
+			<div class="leaflet-control-zoom leaflet-bar leaflet-control">
+				<a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false">
+					<span aria-hidden="true">+</span>
+				</a>
+				<a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false">
+					<span aria-hidden="true">−</span>
+				</a>
+			</div>
+		</div>
+		<div class="leaflet-top leaflet-right">
+
+		</div>
+		<div class="leaflet-bottom leaflet-left">
+
+		</div>
+		<div class="leaflet-bottom leaflet-right">
+			<div class="leaflet-control-attribution leaflet-control">
+				<a target="_blank" href="https://leafletjs.com" title="A JavaScript library for interactive maps">
+					<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag">
+						<path fill="#4C7BE1" d="M0 0h12v4H0z">
+
+						</path>
+						<path fill="#FFD500" d="M0 4h12v3H0z">
+
+						</path>
+						<path fill="#E0BC00" d="M0 7h12v1H0z">
+
+						</path>
+					</svg> Leaflet
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    
+    const styles_FU = {"color": "#333333", "weight": 6};
+    const styles_F0 = {"color": "#00CCAA", "weight": 6};
+    const styles_F1 = {"color": "#0066CC", "weight": 6};
+    const styles_F2 = {"color": "#DDBB11", "weight": 6};
+    const styles_F3 = {"color": "#FF7700", "weight": 6};
+    const styles_F4 = {"color": "#EE0000", "weight": 6};
+    const styles_F5 = {"color": "#990055", "weight": 6};
+    const styles_F6 = {"color": "#9900CC", "weight": 6};
+    const styles_FU_damage_path = {"color": "#333333", "weight": 0, "opacity": 0.4};
+    const styles_F0_damage_path = {"color": "#00CCAA", "weight": 0, "opacity": 0.4};
+    const styles_F1_damage_path = {"color": "#0066CC", "weight": 0, "opacity": 0.4};
+    const styles_F2_damage_path = {"color": "#DDBB11", "weight": 0, "opacity": 0.4};
+    const styles_F3_damage_path = {"color": "#FF7700", "weight": 0, "opacity": 0.4};
+    const styles_F4_damage_path = {"color": "#EE0000", "weight": 0, "opacity": 0.4};
+    const styles_F5_damage_path = {"color": "#990055", "weight": 0, "opacity": 0.4};
+    const styles_F6_damage_path = {"color": "#9900CC", "weight": 0, "opacity": 0.4};
+    const styles_StartMarker = {"color": "#FFFFFF", "weight": 3, "opacity": 0.6};
+    const styles_NationalRoute = {color: "#EEDD66", weight: 1, opacity: 1};
+    const styles_InternationalRoute = {color: "#EEDD66", weight: 2, opacity: 1};
+
+    const checkpoints = L.layerGroup();
+    const internationalRoutes = L.layerGroup();
+    const nationalRoutes = L.layerGroup();
+    const FU_tornadoes = L.geoJSON();
+    const F0_tornadoes = L.geoJSON();
+    const F1_tornadoes = L.geoJSON();
+    const F2_tornadoes = L.geoJSON();
+    const F3_tornadoes = L.geoJSON();
+    const F4_tornadoes = L.geoJSON();
+    const F5_tornadoes = L.geoJSON();
+    const F6_tornadoes = L.geoJSON();
+    const FU_StartMarkers = L.geoJSON();
+    const F0_StartMarkers = L.geoJSON();
+    const F1_StartMarkers = L.geoJSON();
+    const F2_StartMarkers = L.geoJSON();
+    const F3_StartMarkers = L.geoJSON();
+    const F4_StartMarkers = L.geoJSON();
+    const F5_StartMarkers = L.geoJSON();
+    const F6_StartMarkers = L.geoJSON();
+    const FU_damage_paths = L.geoJSON();
+    const F0_damage_paths = L.geoJSON();
+    const F1_damage_paths = L.geoJSON();
+    const F2_damage_paths = L.geoJSON();
+    const F3_damage_paths = L.geoJSON();
+    const F4_damage_paths = L.geoJSON();
+    const F5_damage_paths = L.geoJSON();
+    const F6_damage_paths = L.geoJSON();
+
+    var totalTornadoes = 0;
+    var totalDeaths = 0;
+    var totalInjuries = 0;
+    var totalOIS = 0;
+    var totalLength = 0;
+    var totalDuration = 0;
+    
+    const IR1 = L.polyline([[-55, 652],[-61, 624],[-49, 584],[-20, 589],[-3, 568],[20, 516],[47, 506],[100, 506],[107, 518],[164, 514],[229, 461],[280, 471],[306, 495],[308, 535],[340, 583],[331, 639],[322, 645],[321, 758],[328, 781],[344, 796],[346, 809],[380, 831],[395, 867]], styles_InternationalRoute).bindPopup('International Route 1').addTo(internationalRoutes);
+</script>
+<!-- SEED: 5013728955874042448 -->
+
+<script src="../Tornado_Popup.js"></script>
+<script src="../Tornado_Filters.js"></script>
+<script src="../Tornado_Constructor.js"></script>
+
+<script src="jsTornadoes/Year_0000.js"></script>
+<script src="jsTornadoes/Year_0001.js"></script>
+<script src="jsTornadoes/Year_0002.js"></script>
+
+<script>
+    const mapLayer = L.imageOverlay("mapchunkbase.png", [[-1800, -1800],[1800, 1800]], {
+        opacity: 1
+    });
+    const mapLayerBiomes = L.imageOverlay("mapbiomes.png", [[-1800, -1800],[1800, 1800]], {
+        opacity: 1
+    });
+    const mapLayerMap = L.imageOverlay("map.png", [[-1800, -1800],[1800, 1800]], {
+        opacity: 1
+    });
+    const mapLayerMapLabels = L.imageOverlay("maplabels.png", [[-1800, -1800],[1800, 1800]], {
+        opacity: 1
+    });
+
+	const map = L.map('map', {
+        crs: L.CRS.Simple,
+        minZoom: -3,
+        maxZoom: 10,
+        layers: [mapLayerMap, nationalRoutes, internationalRoutes]
+	}).setView([100, 400],-1);
+
+    const baseLayers = {
+        "Chunkbase": mapLayer,
+        "Biomes": mapLayerBiomes,
+        "Map": mapLayerMap,
+        "Map & Labels": mapLayerMapLabels,
+    };
+    const overlays = {
+    };
+
+    const layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+
+	L.control.scale().addTo(map);
+	const Coordinates = L.Control.extend({
+    onAdd: map => {
+		const container = L.DomUtil.create("div");
+		map.addEventListener("mousemove", e => {
+			container.innerHTML = `
+			Mouse: 
+			${e.latlng.lat.toFixed(4)}°N, 
+			${e.latlng.lng.toFixed(4)}°E
+			`;
+		});
+		return container;
+	}
+	});
+	map.addControl(new Coordinates({ position: "bottomleft" }));
+
+    function numLeng(number, length) {
+        var my_string = '' + number;
+        while (my_string.length < length) {
+            my_string = '0' + my_string;
+        }
+        return my_string;
+    }
+
+    FU_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(FU_tornadoes, layer)
+    });
+    F0_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F0_tornadoes, layer)
+    });
+    F1_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F1_tornadoes, layer)
+    });
+    F2_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F2_tornadoes, layer)
+    });
+    F3_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F3_tornadoes, layer)
+    });
+    F4_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F4_tornadoes, layer)
+    });
+    F5_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F5_tornadoes, layer)
+    });
+    F6_tornadoes.eachLayer(function (layer) {
+        tornado_constructor(F6_tornadoes, layer)
+    });
+    if (ratingALLOW["U"] == true) {
+        FU_tornadoes.addTo(map);
+        FU_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["0"] == true) {
+        F0_tornadoes.addTo(map);
+        F0_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["1"] == true) {
+        F1_tornadoes.addTo(map);
+        F1_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["2"] == true) {
+        F2_tornadoes.addTo(map);
+        F2_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["3"] == true) {
+        F3_tornadoes.addTo(map);
+        F3_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["4"] == true) {
+        F4_tornadoes.addTo(map);
+        F4_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["5"] == true) {
+        F5_tornadoes.addTo(map);
+        F5_StartMarkers.addTo(map);
+    }
+    if (ratingALLOW["6"] == true) {
+        F6_tornadoes.addTo(map);
+        F6_StartMarkers.addTo(map);
+    }
+    F0_tornadoes.addTo(map);
+    F0_StartMarkers.addTo(map);
+    F1_tornadoes.addTo(map);
+    F1_StartMarkers.addTo(map);
+    F2_tornadoes.addTo(map);
+    F2_StartMarkers.addTo(map);
+    F3_tornadoes.addTo(map);
+    F3_StartMarkers.addTo(map);
+    F4_tornadoes.addTo(map);
+    F4_StartMarkers.addTo(map);
+    F5_tornadoes.addTo(map);
+    F5_StartMarkers.addTo(map);
+    F6_tornadoes.addTo(map);
+    F6_StartMarkers.addTo(map);
+
+    F0_tornadoes.eachLayer(function (layer) {layer.setStyle(styles_F0)});
+    F1_tornadoes.eachLayer(function (layer) {layer.setStyle(styles_F1)});
+    F2_tornadoes.eachLayer(function (layer) {layer.setStyle(styles_F2)});
+    F3_tornadoes.eachLayer(function (layer) {layer.setStyle(styles_F3)});
+    F4_tornadoes.eachLayer(function (layer) {layer.setStyle(styles_F4)});
+    F5_tornadoes.eachLayer(function (layer) {layer.setStyle(styles_F5)});
+    F6_tornadoes.eachLayer(function (layer) {layer.setStyle(styles_F6)});
+    FU_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
+    F0_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
+    F1_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
+    F2_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
+    F3_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
+    F4_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
+    F5_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
+    F6_StartMarkers.eachLayer(function (layer) {layer.setStyle(styles_StartMarker)});
+
+    // var pathmakerActive = false
+    // var removeButton = document.getElementById("remove_button")
+    // var clickedCoords = document.getElementById("clicked_coords")
+    // map.on("click", function (e) {
+    //     if (pathmakerActive == true) {
+    //         var comma = ""
+    //         if (clickedCoords.innerHTML != "") {
+    //             comma = ","
+    //         }
+    //         var lat = Math.round((e.latlng.lat + ((Math.random() * 0.004)-0.002)) * 1000)/1000
+    //         var lng = Math.round((e.latlng.lng + ((Math.random() * 0.004)-0.002)) * 1000)/1000
+    //         // console.log(e.latlng.lng)
+    //         clickedCoords.innerHTML += comma + "[" + lng + ", " + lat + "]"
+    //     }
+    // })
+
+    // function removeText () {
+    //     clickedCoords.innerHTML = ""
+    // }
+    // function toggle () {
+    //     if (pathmakerActive == false) {
+    //         pathmakerActive = true
+    //     } else {
+    //         pathmakerActive = false
+    //     }
+    // }
+    // removeButton.onclick(removeText())
+</script>
+
+
+
+</body></html>
