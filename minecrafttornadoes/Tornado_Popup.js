@@ -29,13 +29,13 @@ function tornadoClicked(e) {
     if (prop.length != -99) {
         txtLength = "<tr><th>Length</th><td>" + prop.length + " km</td></tr> "
         if (prop.duration != -99) {
-            txtDuration = "<tr><th>Duration</th><td>" + prop.duration + " uur</td></tr> "
+            txtDuration = "<tr><th>Duration</th><td>" + prop.duration + " h</td></tr> "
         } else {
             txtDuration = "<tr><th>Duration</th><td>?</td></tr> "
         }
     }
     if (prop.duration != -99) {
-        txtDuration = "<tr><th>Duration</th><td>" + prop.duration + " uur</td></tr> "
+        txtDuration = "<tr><th>Duration</th><td>" + prop.duration + " h</td></tr> "
     }
     if (prop.locerror != -99) {
         txtLocError = "<tr><th>Location error</th><td>" + prop.locerror + " m</td></tr> "
