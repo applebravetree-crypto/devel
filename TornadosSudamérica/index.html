@@ -3,7 +3,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Tornado Archive</title>
+	<title>Tornados Sudamérica</title>
 	
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico">
 
@@ -89,6 +89,9 @@
 	</div>
 </div>
 
+<div class="tornado_ui" style="z-index: 800; position: absolute; top: 0; height: 4%; width: 90%;">
+    <p id="totalTornadoes_ui">Tornadoes: ?</p>
+</div>
 <script>
     
     const styles_FU = {"color": "#333333", "weight": 6};
@@ -159,7 +162,60 @@
 <script src="Tornado_Filters.js"></script>
 <script src="Tornado_Constructor.js"></script>
 
+<script src="TornadoPaths/Season_001630.js"></script>
+<script src="TornadoPaths/Season_001631.js"></script>
+<script src="TornadoPaths/Season_001632.js"></script>
+<script src="TornadoPaths/Season_001633.js"></script>
+<script src="TornadoPaths/Season_001634.js"></script>
+<script src="TornadoPaths/Season_001635.js"></script>
+<script src="TornadoPaths/Season_001636.js"></script>
+<script src="TornadoPaths/Season_001637.js"></script>
+<script src="TornadoPaths/Season_001638.js"></script>
+<script src="TornadoPaths/Season_001639.js"></script>
+<script src="TornadoPaths/Season_001810.js"></script>
+<script src="TornadoPaths/Season_001811.js"></script>
+<script src="TornadoPaths/Season_001812.js"></script>
+<script src="TornadoPaths/Season_001813.js"></script>
+<script src="TornadoPaths/Season_001814.js"></script>
+<script src="TornadoPaths/Season_001815.js"></script>
+<script src="TornadoPaths/Season_001816.js"></script>
+<script src="TornadoPaths/Season_001817.js"></script>
+<script src="TornadoPaths/Season_001818.js"></script>
+<script src="TornadoPaths/Season_001819.js"></script>
+<script src="TornadoPaths/Season_001870.js"></script>
+<script src="TornadoPaths/Season_001871.js"></script>
+<script src="TornadoPaths/Season_001872.js"></script>
+<script src="TornadoPaths/Season_001873.js"></script>
+<script src="TornadoPaths/Season_001874.js"></script>
+<script src="TornadoPaths/Season_001875.js"></script>
+<script src="TornadoPaths/Season_001876.js"></script>
 <script src="TornadoPaths/Season_001877.js"></script>
+<script src="TornadoPaths/Season_001878.js"></script>
+<script src="TornadoPaths/Season_001879.js"></script>
+<script src="TornadoPaths/Season_001880.js"></script>
+<script src="TornadoPaths/Season_001881.js"></script>
+<script src="TornadoPaths/Season_001882.js"></script>
+<script src="TornadoPaths/Season_001883.js"></script>
+<script src="TornadoPaths/Season_001884.js"></script>
+<script src="TornadoPaths/Season_001885.js"></script>
+<script src="TornadoPaths/Season_001886.js"></script>
+<script src="TornadoPaths/Season_001887.js"></script>
+<script src="TornadoPaths/Season_001888.js"></script>
+<script src="TornadoPaths/Season_001889.js"></script>
+<script src="TornadoPaths/Season_001890.js"></script>
+<script src="TornadoPaths/Season_001891.js"></script>
+<script src="TornadoPaths/Season_001892.js"></script>
+<script src="TornadoPaths/Season_001893.js"></script>
+<script src="TornadoPaths/Season_001894.js"></script>
+<script src="TornadoPaths/Season_001895.js"></script>
+<script src="TornadoPaths/Season_001896.js"></script>
+<script src="TornadoPaths/Season_001897.js"></script>
+<script src="TornadoPaths/Season_001898.js"></script>
+<script src="TornadoPaths/Season_001899.js"></script>
+<script src="TornadoPaths/Season_001900.js"></script>
+<script src="TornadoPaths/Season_001901.js"></script>
+<script src="TornadoPaths/Season_001902.js"></script>
+<script src="TornadoPaths/Season_001903.js"></script>
 <script src="TornadoPaths/Season_001904.js"></script>
 <script src="TornadoPaths/Season_001905.js"></script>
 <script src="TornadoPaths/Season_001906.js"></script>
@@ -303,30 +359,35 @@
 	// });
 	// map.addControl(new Coordinates({ position: "bottomleft" }));
 
-    // seasonMIN = 945;
-    // seasonMAX = 945;
-    // yearMIN = 940;
-    // yearMAX = 941;
-    // monthMIN = 4;
-    // monthMAX = 3;
+    // seasonMIN = 2025;
+    // seasonMAX = 2026;
+    // yearMIN = 1986;
+    // yearMAX = 1987;
+    // monthMIN = 1;
+    // monthMAX = 12;
     // dayMIN = 1;
-    // dayMAX = 13;
-    // locerrorMIN = -99;
-    // locerrorMAX = 0.25;
+    // dayMAX = 31;
+    // locerrorMIN = 0;
+    // locerrorMAX = 2.5;
+    // var sourcesFiltered = true
+    // var allowedSources = ["Pasillo de los Tornados - Pasado y presente | Google My Maps"]
 	const heightmap_layer = L.layerGroup();
 	const map_image = L.imageOverlay("Theirys_States_Mercator.png", [[-90, -180],[90, 180]])
 	const tileLayer = L.tileLayer('MapTiles/{z}_{x}_{y}.png')
 	const map = L.map('map', {
 		minZoom: 2,
-		maxZoom: 14,
+		maxZoom: 15,
     	zoomSnap: 0.5,
 		zoomDelta: 0.5,
 		wheelPxPerZoomLevel: 90,
 		layers: [esri]
 	}).setView([-25, -60],4);
 
-	const imagemap = L.imageOverlay("images/19930413_Buenos_Aires_1.png", [[-39.18, -63.72],[-35.48, -57]], {
-        opacity: 0.5,
+	// const imagemap = L.imageOverlay("images/19930413_Buenos_Aires.png", [[-29.258, -55.716],[-26.093, -51.244]], {
+    //     opacity: 0.6,
+    // }).addTo(imagemap_layer)
+	const imagemap = L.imageOverlay("images/20120404_Buenos_Aires.png", [[-34.963, -59.357],[-34.445, -57.805]], {
+        opacity: 0.6,
     }).addTo(imagemap_layer)
 
     const baseLayers = {
@@ -414,8 +475,8 @@
         F5_tornadoes.addTo(map);
         F5_StartMarkers.addTo(map);
     }
+
+    var totalTornadoes_ui = document.getElementById("totalTornadoes_ui")
+    totalTornadoes_ui.innerHTML = "Tornadoes: " + totalTornadoes
 </script>
-
-
-
 </body></html>
