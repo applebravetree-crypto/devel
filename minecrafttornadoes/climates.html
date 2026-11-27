@@ -5,7 +5,449 @@
 	
 	<title>Minecraft Climates</title>
     
-	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="styles.css">
+
+    <script>
+        function giveColors (c, val, type) {
+            // console.log(c, val)
+            var r=0
+            var g=0
+            var b=0
+            if (type == "T") {
+                if (val < -72) {
+                    r=85;g=51;b=102;
+                }
+                if (val >= -72 && val < -60) {
+                    mult = (72+val)/(72-60)
+                    r=85+((238-85)*mult);g=51+((221-51)*mult);b=102+((255-102)*mult);
+                }
+                if (val >= -60 && val < -48) {
+                    mult = (60+val)/(60-48)
+                    r=238+((221-238)*mult);g=221+((102-221)*mult);b=255;
+                }
+                if (val >= -48 && val < -24) {
+                    mult = (48+val)/(48-24)
+                    r=221+((204-221)*mult);g=102+((0-102)*mult);b=255;
+                }
+                if (val >= -24 && val < -12) {
+                    mult = (24+val)/(24-12)
+                    r=204+((0-204)*mult);g=0;b=255+((204-255)*mult);
+                }
+                if (val >= -12 && val < 0) {
+                    mult = (12+val)/(12-0)
+                    r=0;g=0+((255-0)*mult);b=204+((255-204)*mult);
+                }
+                if (val >= 0 && val < 9) {
+                    mult = (val-0)/(9-0)
+                    r=0;g=255+((153-255)*mult);b=255+((0-255)*mult);
+                }
+                if (val >= 9 && val < 18) {
+                    mult = (val-9)/(18-9)
+                    r=0+((255-0)*mult);g=153+((255-153)*mult);b=0;
+                }
+                if (val >= 18 && val < 27) {
+                    mult = (val-18)/(27-18)
+                    r=255+((204-255)*mult);g=255+((0-255)*mult);b=0;
+                }
+                if (val >= 27 && val < 33) {
+                    mult = (val-27)/(33-27)
+                    r=204+((255-204)*mult);g=0+((102-0)*mult);b=0+((255-0)*mult);
+                }
+                if (val >= 33 && val < 42) {
+                    mult = (val-33)/(42-33)
+                    r=255+((204-255)*mult);g=102+((255-102)*mult);b=255;
+                }
+				c.innerHTML+="°C<br>("+Math.round((val*1.8)+32)+"°F)"
+            }
+            if (type == "H") {
+                if (val < -72) {
+                    r=85;g=51;b=102;
+                }
+                if (val < 3) {
+                    mult = (val-0)/(3-0)
+                    r=102+((136-102)*mult);g=51+((102-51)*mult);b=85;
+                }
+                if (val >= 3 && val < 6) {
+                    mult = (val-3)/(6-3)
+                    r=136+((85-136)*mult);g=102+((17-102)*mult);b=85+((0-85)*mult);
+                }
+                if (val >= 6 && val < 12) {
+                    mult = (val-6)/(12-6)
+                    r=85+((170-85)*mult);g=17+((0)*mult);b=0;
+                }
+                if (val >= 12 && val < 16) {
+                    mult = (val-12)/(16-12)
+                    r=170+((136-170)*mult);g=0+((51-0)*mult);b=0;
+                }
+                if (val >= 16 && val < 24) {
+                    mult = (val-16)/(24-16)
+                    r=136+((204-136)*mult);g=51;b=0;
+                }
+                if (val >= 24 && val < 36) {
+                    mult = (val-24)/(36-24)
+                    r=204+((255-204)*mult);g=51+((102-51)*mult);b=0;
+                }
+                if (val >= 36 && val < 48) {
+                    mult = (val-36)/(48-36)
+                    r=255+((102-255)*mult);g=102+((204-102)*mult);b=0;
+                }
+                if (val >= 48 && val < 60) {
+                    mult = (val-48)/(60-48)
+                    r=102+((0-102)*mult);g=204+((153-204)*mult);b=0+((102-0)*mult);
+                }
+                if (val >= 60 && val < 75) {
+                    mult = (val-60)/(75-60)
+                    r=0;g=153+((51-153)*mult);b=102+((204-102)*mult);
+                }
+                if (val >= 75 && val < 90) {
+                    mult = (val-75)/(90-75)
+                    r=0;g=51+((204-51)*mult);b=204+((255-204)*mult);
+                }
+                if (val >= 90 && val < 100) {
+                    mult = (val-90)/(100-90)
+                    r=0;g=204+((255-204)*mult);b=255;
+                }
+				c.innerText+="%"
+            }
+            if (type == "TR") {
+                if (val > 0 && val < 12) {
+                    mult = (val-0)/12
+                    r=51+(255-51)*mult;g=102+(221-102)*mult;b=0;
+                }
+                if (val >= 12 && val < 30) {
+                    mult = (val-12)/(30-12)
+                    r=255;g=221+(0-221)*mult;b=0;
+                }
+                if (val == 30) {
+                    r=255;g=0;b=0;
+                }
+                if (val < 0) {
+                    r=0;g=0;b=0;
+                    c.style.color = "#666666"
+                }
+            }
+            if (type == "R") {
+                if (val >= 0 && val < 1) {
+                    mult = (val-0)/1
+                    r=0+(162-0)*mult;g=0+(229-0)*mult;b=0+(162-0)*mult;
+                }
+                if (val >= 1 && val < 2) {
+                    mult = (val-1)/1
+                    r=162+(64-162)*mult;g=229+(128-229)*mult;b=162+(0-162)*mult;
+                }
+                if (val >= 2 && val < 3) {
+                    mult = (val-2)/1
+                    r=64+(255-64)*mult;g=128+(255-128)*mult;b=0;
+                }
+                if (val >= 3 && val < 4) {
+                    mult = (val-3)/1
+                    r=255;g=255+(128-255)*mult;b=0;
+                }
+                if (val >= 4 && val < 5) {
+                    mult = (val-4)/1
+                    r=255;g=128+(0-128)*mult;b=0;
+                }
+                if (val >= 5 && val < 6) {
+                    mult = (val-5)/1
+                    r=255;g=0;b=0+(255-0)*mult;
+                }
+                if (val == 6) {
+                    r=255;g=0;b=255;
+                }
+                if (val < 0.2) {
+                    c.style.color = "#666666"
+                }
+            }
+            if (type == "S") {
+                if (val >= 0 && val < 8) {
+                    mult = (val-0)/8
+                    r=0+(255-0)*mult;g=0+(255-0)*mult;b=0+(255-0)*mult;
+                }
+                if (val == 8) {
+                    r=255;g=255;b=255;
+                }
+                if (val < 2) {
+                    c.style.color = "#666666"
+                }
+            }
+            if (type == "L") {
+                if (val >= 0 && val < 2) {
+                    mult = (val-0)/2
+                    r=51+(119-51)*mult;g=119+(34-119)*mult;b=0;
+                }
+                if (val == 2) {
+                    r=119;g=34;b=0;
+                }
+            }
+            c.style.backgroundColor = "rgb("+r+","+g+","+b+")"
+        }
+        function getCells () {
+            var row = document.getElementsByClassName("T_rec_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "T")
+					}
+				}
+			}
+            row = document.getElementsByClassName("T_avg_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "T")
+					}
+				}
+			}
+            row = document.getElementsByClassName("T_avg_d_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "T")
+					}
+				}
+			}
+            row = document.getElementsByClassName("T_avg_d_min")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "T")
+					}
+				}
+			}
+            row = document.getElementsByClassName("T_avg_min")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "T")
+					}
+				}
+			}
+            row = document.getElementsByClassName("T_rec_min")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "T")
+					}
+				}
+			}
+            row = document.getElementsByClassName("D_avg_d_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "T")
+					}
+				}
+			}
+            row = document.getElementsByClassName("H_rec_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "H")
+					}
+				}
+			}
+            row = document.getElementsByClassName("H_avg_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "H")
+					}
+				}
+			}
+            row = document.getElementsByClassName("H_avg")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "H")
+					}
+				}
+			}
+            row = document.getElementsByClassName("H_avg_min")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "H")
+					}
+				}
+			}
+            row = document.getElementsByClassName("H_rec_min")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "H")
+					}
+				}
+			}
+            row = document.getElementsByClassName("M_avg")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "H")
+					}
+				}
+			}
+            row = document.getElementsByClassName("TR_avg_tot")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "TR")
+					}
+				}
+			}
+            row = document.getElementsByClassName("TR_avg_d")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "TR")
+					}
+				}
+			}
+            row = document.getElementsByClassName("R_rec_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "R")
+					}
+				}
+			}
+            row = document.getElementsByClassName("R_avg_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "R")
+					}
+				}
+			}
+            row = document.getElementsByClassName("R_avg_d_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "R")
+					}
+				}
+			}
+            row = document.getElementsByClassName("S_rec_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "S")
+					}
+				}
+			}
+            row = document.getElementsByClassName("S_avg_max")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "S")
+					}
+				}
+			}
+            row = document.getElementsByClassName("S_avg")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "S")
+					}
+				}
+			}
+            row = document.getElementsByClassName("S_avg_min")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "S")
+					}
+				}
+			}
+            row = document.getElementsByClassName("S_rec_min")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "S")
+					}
+				}
+			}
+            row = document.getElementsByClassName("L_avg")
+			for (i0=0; i0<row.length; i0++) {
+				var cell = row[i0].children
+				for (i=1; i<row[i0].childElementCount; i++) {
+					var c=cell[i]
+					var val = Number(c.innerText)
+					if (c.innerText != "") {
+						giveColors(c, val, "L")
+					}
+				}
+			}
+        }
+    </script>
 </head>
 <body>
 	<h1><a href="../">Devel</a></h1>
@@ -26,7 +468,7 @@
 		<li><b>TR tornadoes</b>: amount of tornadoes observed on any given day.</li>
 		<li><b>R risk</b>: maximum SPC risk-category observed on any given day.</li>
 		<li><b>S snow</b>: average height of snow in the area surrounding the weather-station in the morning, eyeballed.</li>
-		<li><b>L leaf color</b>: color of leaves on trees in the area in the morning, eyeballed.</li>
+		<li><b>L leaf color</b>: color of leaves on deciduous trees in the area in the morning, eyeballed.</li>
 	</ol>
 	<h3>Chilamania</h3>
 	<table>
@@ -41,7 +483,7 @@
 			</tr>
 			<tr>
 				<th>timespan</th>
-				<td colspan="13">jun y0</td>
+				<td colspan="13">jun y0 &ndash; jul y0</td>
 			</tr>
 			<tr>
 				<th>data</th>
@@ -69,15 +511,15 @@
 				<td></td>
 				<td></td>
 				<td>38</td>
+				<td>39</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>38</td>
+				<td>39</td>
 			</tr>
-			<tr class="T T_avg_mth_max" id="CLA_T_avg_mth_max">
+			<tr class="T T_avg_max" id="CLA_T_avg_max">
 				<th>T average monthly max</th>
 				<td></td>
 				<td></td>
@@ -85,15 +527,15 @@
 				<td></td>
 				<td></td>
 				<td>38</td>
+				<td>39</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>38</td>
+				<td>39</td>
 			</tr>
-			<tr class="T T_avg_max" id="CLA_T_avg_max">
+			<tr class="T T_avg_d_max" id="CLA_T_avg_d_max">
 				<th>T average daily max</th>
 				<td></td>
 				<td></td>
@@ -101,7 +543,7 @@
 				<td></td>
 				<td></td>
 				<td>33</td>
-				<td></td>
+				<td>33</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -109,7 +551,7 @@
 				<td></td>
 				<td>33</td>
 			</tr>
-			<tr class="T T_avg_min" id="CLA_T_avg_min">
+			<tr class="T T_avg_d_min" id="CLA_T_avg_d_min">
 				<th>T average daily min</th>
 				<td></td>
 				<td></td>
@@ -117,15 +559,15 @@
 				<td></td>
 				<td></td>
 				<td>30</td>
+				<td>29</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>30</td>
+				<td>29</td>
 			</tr>
-			<tr class="T T_avg_mth_min" id="CLA_T_avg_mth_min">
+			<tr class="T T_avg_min" id="CLA_T_avg_min">
 				<th>T average monthly min</th>
 				<td></td>
 				<td></td>
@@ -133,13 +575,13 @@
 				<td></td>
 				<td></td>
 				<td>22</td>
+				<td>17</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>22</td>
+				<td>20</td>
 			</tr>
 			<tr class="T T_rec_min" id="CLA_T_rec_min">
 				<th>T record min</th>
@@ -149,15 +591,15 @@
 				<td></td>
 				<td></td>
 				<td>22</td>
+				<td>17</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>22</td>
+				<td>17</td>
 			</tr>
-			<tr class="D D_avg_max" id="CLA_D_avg_max">
+			<tr class="D D_avg_d_max" id="CLA_D_avg_max">
 				<th>D average daily max</th>
 				<td></td>
 				<td></td>
@@ -165,7 +607,7 @@
 				<td></td>
 				<td></td>
 				<td>23</td>
-				<td></td>
+				<td>22</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -181,7 +623,7 @@
 				<td></td>
 				<td></td>
 				<td>72</td>
-				<td></td>
+				<td>69</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -189,7 +631,7 @@
 				<td></td>
 				<td>72</td>
 			</tr>
-			<tr class="H H_avg_mth_max" id="CLA_H_avg_mth_max">
+			<tr class="H H_avg_max" id="CLA_H_avg_max">
 				<th>H average monthly max</th>
 				<td></td>
 				<td></td>
@@ -197,13 +639,13 @@
 				<td></td>
 				<td></td>
 				<td>72</td>
+				<td>69</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>72</td>
+				<td>71</td>
 			</tr>
 			<tr class="H H_avg" id="CLA_H_avg">
 				<th>H daily average</th>
@@ -213,15 +655,15 @@
 				<td></td>
 				<td></td>
 				<td>60</td>
+				<td>55</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>60</td>
+				<td>58</td>
 			</tr>
-			<tr class="H H_avg_mth_min" id="CLA_H_avg_mth_min">
+			<tr class="H H_avg_min" id="CLA_H_avg_min">
 				<th>H average monthly min</th>
 				<td></td>
 				<td></td>
@@ -229,13 +671,13 @@
 				<td></td>
 				<td></td>
 				<td>51</td>
+				<td>43</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>51</td>
+				<td>47</td>
 			</tr>
 			<tr class="H H_rec_min" id="CLA_H_rec_min">
 				<th>H record min</th>
@@ -245,13 +687,13 @@
 				<td></td>
 				<td></td>
 				<td>51</td>
+				<td>43</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>51</td>
+				<td>43</td>
 			</tr>
 			<tr class="M M_avg" id="CLA_M_avg">
 				<th>M daily average</th>
@@ -261,45 +703,45 @@
 				<td></td>
 				<td></td>
 				<td>86</td>
+				<td>92</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>86</td>
+				<td>89</td>
 			</tr>
 			<tr class="TR TR_avg_tot" id="CLA_TR_avg_tot">
-				<th>TR average monthly total</th>
+				<th>TR average total</th>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>5.0</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
 				<td>5.0</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>10.0</td>
 			</tr>
 			<tr class="TR TR_avg_d" id="CLA_TR_avg_d">
-				<th>TR average tornado days</th>
+				<th>TR average days</th>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>5.0</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
 				<td>5.0</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>10.0</td>
 			</tr>
 			<tr class="R R_rec_max" id="CLA_R_rec_max">
 				<th>R record max</th>
@@ -309,7 +751,7 @@
 				<td></td>
 				<td></td>
 				<td>5</td>
-				<td></td>
+				<td>5</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -317,15 +759,15 @@
 				<td></td>
 				<td>5</td>
 			</tr>
-			<tr class="R R_avg_mth_max" id="CLA_R_avg_mth_max">
-				<th>R average monthly max</th>
+			<tr class="R R_avg_max" id="CLA_R_avg_max">
+				<th>R average max</th>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>5.0</td>
-				<td></td>
+				<td>5.0</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -333,7 +775,7 @@
 				<td></td>
 				<td>5.0</td>
 			</tr>
-			<tr class="R R_avg_max" id="CLA_R_avg_max">
+			<tr class="R R_avg_d_max" id="CLA_R_avg_d_max">
 				<th>R average daily max</th>
 				<td></td>
 				<td></td>
@@ -341,15 +783,15 @@
 				<td></td>
 				<td></td>
 				<td>3.7</td>
+				<td>2.6</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>3.7</td>
+				<td>3.1</td>
 			</tr>
-			<tr class="S R_rec_max" id="CLA_R_rec_max">
+			<tr class="S S_rec_max" id="CLA_S_rec_max">
 				<th>S record max</th>
 				<td></td>
 				<td></td>
@@ -357,7 +799,7 @@
 				<td></td>
 				<td></td>
 				<td>0</td>
-				<td></td>
+				<td>0</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -365,15 +807,15 @@
 				<td></td>
 				<td>0</td>
 			</tr>
-			<tr class="S S_avg_mth_max" id="CLA_S_avg_mth_max">
-				<th>S average monthly max</th>
+			<tr class="S S_avg_max" id="CLA_S_avg_max">
+				<th>S average max</th>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>0</td>
-				<td></td>
+				<td>0</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -389,7 +831,7 @@
 				<td></td>
 				<td></td>
 				<td>0</td>
-				<td></td>
+				<td>0</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -397,15 +839,15 @@
 				<td></td>
 				<td>0</td>
 			</tr>
-			<tr class="S S_avg_mth_min" id="CLA_S_avg_mth_min">
-				<th>S average monthly min</th>
+			<tr class="S S_avg_min" id="CLA_S_avg_min">
+				<th>S average min</th>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>0</td>
-				<td></td>
+				<td>0</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -421,7 +863,7 @@
 				<td></td>
 				<td></td>
 				<td>0</td>
-				<td></td>
+				<td>0</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -437,7 +879,7 @@
 				<td></td>
 				<td></td>
 				<td>0.0</td>
-				<td></td>
+				<td>0.0</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -496,7 +938,7 @@
 				<td></td>
 				<td>30</td>
 			</tr>
-			<tr class="T T_avg_mth_max" id="PIO_T_avg_mth_max">
+			<tr class="T T_avg_max" id="PIO_T_avg_max">
 				<th>T average monthly max</th>
 				<td></td>
 				<td></td>
@@ -512,7 +954,7 @@
 				<td></td>
 				<td>29</td>
 			</tr>
-			<tr class="T T_avg_max" id="PIO_T_avg_max">
+			<tr class="T T_avg_d_max" id="PIO_T_avg_d_max">
 				<th>T average daily max</th>
 				<td></td>
 				<td></td>
@@ -528,7 +970,7 @@
 				<td></td>
 				<td>23</td>
 			</tr>
-			<tr class="T T_avg_min" id="PIO_T_avg_min">
+			<tr class="T T_avg_d_min" id="PIO_T_avg_d_min">
 				<th>T average daily min</th>
 				<td></td>
 				<td></td>
@@ -544,7 +986,7 @@
 				<td></td>
 				<td>19</td>
 			</tr>
-			<tr class="T T_avg_mth_min" id="PIO_T_avg_mth_min">
+			<tr class="T T_avg_min" id="PIO_T_avg_min">
 				<th>T average monthly min</th>
 				<td></td>
 				<td></td>
@@ -576,7 +1018,7 @@
 				<td></td>
 				<td>5</td>
 			</tr>
-			<tr class="D D_avg_max" id="PIO_D_avg_max">
+			<tr class="D D_avg_d_max" id="PIO_D_avg_d_max">
 				<th>D average daily max</th>
 				<td></td>
 				<td></td>
@@ -608,7 +1050,7 @@
 				<td></td>
 				<td>99</td>
 			</tr>
-			<tr class="H H_avg_mth_max" id="PIO_H_avg_mth_max">
+			<tr class="H H_avg_max" id="PIO_H_avg_max">
 				<th>H average monthly max</th>
 				<td></td>
 				<td></td>
@@ -640,7 +1082,7 @@
 				<td></td>
 				<td>64</td>
 			</tr>
-			<tr class="H H_avg_mth_min" id="PIO_H_avg_mth_min">
+			<tr class="H H_avg_min" id="PIO_H_avg_min">
 				<th>H average monthly min</th>
 				<td></td>
 				<td></td>
@@ -689,7 +1131,7 @@
 				<td>90</td>
 			</tr>
 			<tr class="TR TR_avg_tot" id="PIO_TR_avg_tot">
-				<th>TR average monthly total</th>
+				<th>TR average total</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -702,10 +1144,10 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td>6.5</td>
+				<td>26.0</td>
 			</tr>
 			<tr class="TR TR_avg_d" id="PIO_TR_avg_d">
-				<th>TR average tornado days</th>
+				<th>TR average days</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -718,7 +1160,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td>6.5</td>
+				<td>26.0</td>
 			</tr>
 			<tr class="R R_rec_max" id="PIO_R_rec_max">
 				<th>R record max</th>
@@ -736,8 +1178,8 @@
 				<td></td>
 				<td>5</td>
 			</tr>
-			<tr class="R R_avg_mth_max" id="PIO_R_avg_mth_max">
-				<th>R average monthly max</th>
+			<tr class="R R_avg_max" id="PIO_R_avg_max">
+				<th>R average max</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -750,9 +1192,9 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td>3.3</td>
+				<td>5.0</td>
 			</tr>
-			<tr class="R R_avg_max" id="PIO_R_avg_max">
+			<tr class="R R_avg_d_max" id="PIO_R_avg_d_max">
 				<th>R average daily max</th>
 				<td></td>
 				<td></td>
@@ -784,8 +1226,8 @@
 				<td></td>
 				<td>0</td>
 			</tr>
-			<tr class="S S_avg_mth_max" id="PIO_S_avg_mth_max">
-				<th>S average monthly max</th>
+			<tr class="S S_avg_max" id="PIO_S_avg_max">
+				<th>S average max</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -816,8 +1258,8 @@
 				<td></td>
 				<td>0</td>
 			</tr>
-			<tr class="S S_avg_mth_min" id="PIO_S_avg_mth_min">
-				<th>S average monthly min</th>
+			<tr class="S S_avg_min" id="PIO_S_avg_min">
+				<th>S average min</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -866,5 +1308,8 @@
 			</tr>
 		</tbody>
 	</table>
+    <script>
+        getCells()
+    </script>
 </body>
 </html>
