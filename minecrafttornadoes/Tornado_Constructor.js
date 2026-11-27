@@ -39,7 +39,7 @@ function tornado_constructor (parent, layer) {
     var style = stylesPerF[prop.rating]
     var StartMarker = StartMarkersPerF[prop.rating]
     var satisfiesDate = false
-    if ((prop.year + (monthsStartDayOfYear[prop.month-1]/130) + (prop.day/130) >= yearMIN + (monthsStartDayOfYear[monthMIN-1]/130) + (dayMIN/130)) && (prop.year + (monthsStartDayOfYear[prop.month-1]/130) + (prop.day/130) <= yearMAX + (monthsStartDayOfYear[monthMAX-1]/130) + (dayMAX/130))) {
+    if ((prop.date[0] + (monthsStartDayOfYear[prop.date[1]-1]/130) + (prop.date[2]/130) >= yearMIN + (monthsStartDayOfYear[monthMIN-1]/130) + (dayMIN/130)) && (prop.date[0] + (monthsStartDayOfYear[prop.date[1]-1]/130) + (prop.date[2]/130) <= yearMAX + (monthsStartDayOfYear[monthMAX-1]/130) + (dayMAX/130))) {
         satisfiesDate = true
     }
     if (satisfiesDate && ((prop.hour+(prop.minute/60)) >= (hourMIN+(minuteMIN/60)) && (prop.hour+(prop.minute/60)) <= (hourMAX+(minuteMAX/60))) && (prop.width >= widthMIN && prop.width <= widthMAX) && (prop.length >= lengthMIN && prop.length <= lengthMAX) && (prop.duration >= durationMIN && prop.duration <= durationMAX)) {
