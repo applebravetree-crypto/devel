@@ -7,11 +7,6 @@
     
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="../styles.css">
-	<style>
-		td,th {
-			color: #000000;
-		}
-	</style>
 
     <script>
         function giveColors (c, val, type) {
@@ -19,6 +14,7 @@
             var r=0
             var g=0
             var b=0
+            c.style.color = "#000000"
             if (type == "T") {
                 if (val < -72) {
                     r=85;g=51;b=102;
