@@ -89,7 +89,7 @@
 </div>
 <div class="tornado_ui" style="z-index: 800; position: absolute; top: 0; height: 6%; width: 90%;">
     <div id="totalTornadoes_ui">Tornadoes: ?</div>
-    <div>In-game date: 0/06/25; Real: 2026/11/20</div>
+    <div>In-game date: 0/07/28 (2026/11/27)</div>
 </div>
 
 <script>
@@ -111,7 +111,7 @@
     const styles_F5_damage_path = {"color": "#990055", "weight": 0, "opacity": 0.4};
     const styles_F6_damage_path = {"color": "#9900CC", "weight": 0, "opacity": 0.4};
     const styles_StartMarker = {"color": "#FFFFFF", "weight": 3, "opacity": 0.6};
-    const styles_NationalRoute = {color: "#EEDD66", weight: 1, opacity: 1};
+    const styles_NationalRoute = {color: "#EEEEEE", weight: 2, opacity: 1};
     const styles_InternationalRoute = {color: "#EEDD66", weight: 2, opacity: 1};
 
     const checkpoints = L.layerGroup();
@@ -149,10 +149,13 @@
     var totalLength = 0;
     var totalDuration = 0;
     
-    const IR1 = L.polyline([[919, -72],[858,-59],[831,-63],[812, -79],[780,-129],[751,-124],[730,-114],[709,-111],[684,-93],[655,-98],[645,-86],[610,-79],[604, -103],[598, -112],[598, -125],[601, -143],[615, -151],[630, -164]], styles_InternationalRoute).bindPopup('International Route 1').addTo(internationalRoutes);
+    const IR1 = L.polyline([[1303,-8],[1278,-18],[1235,-12],[1216,-7],[1192,-12],[1177,-9],[1153,-23],[1146,-23],[1125,-35],[1096,-44],[1077,-47],[1068,-63],[1024,-79],[1005,-79],[986,-76],[966,-65],[938,-71],[913,-70],[858,-59],[831,-63],[812,-79],[780,-129],[751,-124],[730,-114],[709,-111],[684,-93],[655,-98],[645,-86],[624,-81],[610,-79],[604,-103],[598,-112],[598,-125],[601,-143],[615,-151],[630,-164],[631,-175],[587,-196],[568,-223],[554,-226],[551,-251],[516,-281],[506,-337],[495,-354],[485,-381]], styles_InternationalRoute).bindPopup('International Route 1').addTo(internationalRoutes);
+    const IR2 = L.polyline([[624,-81],[629,-61],[619,-26],[615,3],[618,33],[606,40],[606,50],[639,73],[655,102],[664,153],[652,204]], styles_InternationalRoute).bindPopup('International Route 2').addTo(internationalRoutes);
+    const IR3 = L.polyline([[913,-70],[916,-45],[910,-35],[912,-11],[908,-1],[908,72],[904,72],[904,79],[907,79],[907,94],[910,101],[910,125],[915,131],[926,131]], styles_InternationalRoute).bindPopup('International Route 3').addTo(internationalRoutes);
 </script>
 <!-- SEED: -240350106356819 -->
 
+<script src="villages.js"></script>
 <script src="../Tornado_Popup.js"></script>
 <script src="../Tornado_Filters.js"></script>
 <script src="../Tornado_Constructor.js"></script>
