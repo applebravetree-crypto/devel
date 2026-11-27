@@ -37,7 +37,7 @@ function tornadoClicked(e) {
         if (prop.rdate[1] == -99 && prop.rdate[2] == -99) {
             txtRDate = prop.rdate[0]
         }
-        txtRDate = "<tbody><tr><th>Echte tijd</th><td>" + txtRDate + "</td></tr>"
+        txtRDate = "<tbody><tr><th>Real date</th><td>" + txtRDate + "</td></tr>"
     }
     if (prop.width != -99) {
         txtWidth = "<tr><th>Width</th><td>" + prop.width + " m</td></tr> "
